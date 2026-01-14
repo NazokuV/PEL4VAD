@@ -4,10 +4,9 @@ import torch
 
 
 def cal_false_alarm(gt, preds, threshold=0.5):
-    preds = list(preds.cpu().detach().numpy())
-    gt = list(gt.cpu().detach().numpy())
+    preds = np.array(preds.cpu().detach().numpy())
+    gt = np.array(gt.cpu().detach().numpy())
 
-    preds = np.repeat(preds, 16)
     preds[preds < threshold] = 0
     preds[preds >= threshold] = 1
     tn, fp, fn, tp = confusion_matrix(gt, preds, labels=[0, 1]).ravel()

@@ -29,18 +29,30 @@ def infer_func(model, dataloader, gt, logger, cfg):
                 pass
             logits = logits[:seq]
 
-            pred = torch.cat((pred, logits))
             labels = gt_tmp[: seq_len[0]*16]
+            # Expandir logits para que coincida con labels (que está expandido por 16)
+            logits_expanded = torch.repeat_interleave(logits, 16)
+            # Asegurar que tengan la misma longitud
+            if len(logits_expanded) > len(labels):
+                logits_expanded = logits_expanded[:len(labels)]
+            elif len(logits_expanded) < len(labels):
+                # Rellenar con el último valor si es necesario
+                logits_expanded = torch.cat([logits_expanded, torch.ones(len(labels) - len(logits_expanded)).cuda() * logits_expanded[-1]])
+            
+            # Agregar a pred (ya expandido)
+            pred = torch.cat((pred, logits_expanded))
+            
             if torch.sum(labels) == 0:
                 normal_labels = torch.cat((normal_labels, labels))
-                normal_preds = torch.cat((normal_preds, logits))
+                normal_preds = torch.cat((normal_preds, logits_expanded))
             gt_tmp = gt_tmp[seq_len[0]*16:]
 
         pred = list(pred.cpu().detach().numpy())
+        # Las etiquetas y predicciones ya están al mismo nivel, no necesitan expansión adicional
         far = cal_false_alarm(normal_labels, normal_preds)
-        fpr, tpr, _ = roc_curve(list(gt), np.repeat(pred, 16))
+        fpr, tpr, _ = roc_curve(list(gt), pred)
         roc_auc = auc(fpr, tpr)
-        pre, rec, _ = precision_recall_curve(list(gt), np.repeat(pred, 16))
+        pre, rec, _ = precision_recall_curve(list(gt), pred)
         pr_auc = auc(rec, pre)
 
     time_elapsed = time.time() - st

@@ -25,7 +25,7 @@ class UCFDataset(data.Dataset):
         self.list = list(open(self.list_file))
 
     def __getitem__(self, index):
-        # video_name = self.list[index].strip('\n').split('/')[-1][:-4]
+        video_name = self.list[index].strip('\n').split('/')[-1][:-4]
         feat_path = os.path.join(self.feat_prefix, self.list[index].strip('\n'))
         video_idx = self.list[index].strip('\n').split('/')[-1].split('_')[0]
         if self.normal_flag in self.list[index]:
@@ -48,7 +48,7 @@ class UCFDataset(data.Dataset):
             t_feat = self.tranform(t_feat)
 
         if self.test_mode:
-            return v_feat, label  # ano_idx , video_name
+            return v_feat, video_name
         else:
             v_feat = process_feat(v_feat, self.max_seqlen, is_random=False)
             return v_feat, t_feat, label, ano_idx
