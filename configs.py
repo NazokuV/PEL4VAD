@@ -5,10 +5,12 @@ def build_config(dataset):
         cfg.dataset = 'ucf-crime'
         cfg.model_name = 'ucf_'
         cfg.metrics = 'AUC'
-        cfg.feat_prefix = '/home/nazoku/Desktop/TFG/datos/'
+        # cfg.feat_prefix = '/home/hugo/Desktop/TFG/ucf_crime/UCF_ten_onecrop'
+        cfg.feat_prefix = '/home/hugo/Desktop/TFG/ucf_crime/UCF_ten_onecrop_16'
         cfg.train_list = './list/ucf/train.list'
         cfg.test_list = './list/ucf/test.list'
         cfg.token_feat = './list/ucf/ucf-prompt.npy'
+        cfg.gt = './list/ucf/ucf-gt-updated.npy'
         cfg.gt = './list/ucf/ucf-gt-updated.npy'
         # TCA settings
         cfg.win_size = 9
@@ -49,8 +51,8 @@ def build_config(dataset):
         cfg.seed = 4
         # test settings
         cfg.test_bs = 1
-        cfg.smooth = 'slide'  # ['fixed': 8, slide': 3]
-        cfg.kappa = 7  # smooth window
+        cfg.smooth = 'fixed'  # ['fixed': 8, slide': 3]
+        cfg.kappa = 8  # smooth window
         cfg.ckpt_path = './ckpt/xd__8526.pkl'
 
     elif dataset in ['sh', 'SHTech']:
@@ -75,7 +77,7 @@ def build_config(dataset):
         cfg.lamda = 9
         cfg.seed = 0
         # test settings
-        cfg.test_bs = 10
+        cfg.test_bs = 1
         cfg.smooth = 'slide'  # ['fixed': 5, slide': 3]
         cfg.kappa = 3  # smooth window
         cfg.ckpt_path = './ckpt/SH__98.pkl'

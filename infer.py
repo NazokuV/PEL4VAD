@@ -1,6 +1,13 @@
-
 import time
 from utils import fixed_smooth, slide_smooth
+import numpy as np
+import torch
+from sklearn.metrics import roc_curve, auc, precision_recall_curve
+
+if not hasattr(np, 'bool'):   np.bool   = np.bool_
+if not hasattr(np, 'int'):    np.int    = np.int64
+if not hasattr(np, 'float'):  np.float  = np.float64
+if not hasattr(np, 'complex'): np.complex = np.complex128
 from test import *
 
 
@@ -15,8 +22,25 @@ def infer_func(model, dataloader, gt, logger, cfg):
 
         for i, (v_input, name) in enumerate(dataloader):
             v_input = v_input.float().cuda(non_blocking=True)
+            
+            # Calculamos seq_len del tensor original para usarlo con el GT luego
             seq_len = torch.sum(torch.max(torch.abs(v_input), dim=2)[0] > 0, 1)
-            logits, _ = model(v_input, seq_len)
+            
+            # --- SOLUCIÓN OOM: Procesamos en trozos (chunks) ---
+            chunk_size = 5  # Simula el test_bs reducido para que quepa en tu GPU de 8GB
+            logits_list = []
+            
+            # Dividimos a lo largo de la dimensión del batch (dim=0)
+            for v_in in torch.split(v_input, chunk_size, dim=0):
+                seq_len_split = torch.sum(torch.max(torch.abs(v_in), dim=2)[0] > 0, 1)
+                l, _ = model(v_in, seq_len_split)
+                logits_list.append(l)
+            
+            # Volvemos a concatenar los resultados para recuperar la forma original
+            logits = torch.cat(logits_list, dim=0)
+            # ----------------------------------------------------
+
+            # A partir de aquí, el código original funcionará perfectamente
             logits = torch.mean(logits, 0)
             logits = logits.squeeze(dim=-1)
 
