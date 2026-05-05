@@ -137,3 +137,17 @@
 [2026-05-05 19:43:07,671][main.py][line:26][INFO] loading pretrained checkpoint from ./ckpt/ucf__8636.pkl.
 [2026-05-05 19:43:19,040][infer.py][line:71][INFO] offline AUC:0.8189 AP:0.2313 FAR:0.0247 | Complete in 0m 11s
 
+[2026-05-05 19:55:36,965][main.py][line:87][INFO] Config:{'dataset': 'ucf-crime', 'model_name': 'ucf_', 'metrics': 'AUC', 'feat_prefix': '/home/hugo/Desktop/TFG/ucf_crime/UCF_ten_onecrop_16', 'train_list': './list/ucf/train.list', 'test_list': './list/ucf/test.list', 'token_feat': './list/ucf/ucf-prompt.npy', 'gt': './list/ucf/ucf-gt-updated.npy', 'win_size': 9, 'gamma': 0.6, 'bias': 0.2, 'norm': True, 't_step': 9, 'temp': 0.09, 'lamda': 1, 'seed': 9, 'test_bs': 1, 'smooth': 'slide', 'kappa': 10, 'ckpt_path': './ckpt/ucf__8636.pkl', 'feat_dim': 1024, 'head_num': 1, 'hid_dim': 128, 'out_dim': 300, 'lr': 0.0005, 'dropout': 0.1, 'train_bs': 128, 'max_seqlen': 200, 'max_epoch': 50, 'workers': 8, 'save_dir': './ckpt/', 'logs_dir': './log_info.log'}
+[2026-05-05 19:55:39,664][main.py][line:113][INFO] total params:1.2091M
+[2026-05-05 19:55:39,664][main.py][line:120][INFO] Test Mode
+[2026-05-05 19:55:39,664][main.py][line:26][INFO] loading pretrained checkpoint from ./ckpt/ucf__8636.pkl.
+[2026-05-05 19:56:32,831][main.py][line:87][INFO] Config:{'dataset': 'ucf-crime', 'model_name': 'ucf_', 'metrics': 'AUC', 'feat_prefix': '/home/hugo/Desktop/TFG/ucf_crime/UCF_ten_onecrop_16', 'train_list': './list/ucf/train.list', 'test_list': './list/ucf/test.list', 'token_feat': './list/ucf/ucf-prompt.npy', 'gt': './list/ucf/ucf-gt-updated.npy', 'win_size': 9, 'gamma': 0.6, 'bias': 0.2, 'norm': True, 't_step': 9, 'temp': 0.09, 'lamda': 1, 'seed': 9, 'test_bs': 10, 'smooth': 'slide', 'kappa': 7, 'ckpt_path': './ckpt/ucf__8636.pkl', 'feat_dim': 1024, 'head_num': 1, 'hid_dim': 128, 'out_dim': 300, 'lr': 0.0005, 'dropout': 0.1, 'train_bs': 128, 'max_seqlen': 200, 'max_epoch': 50, 'workers': 8, 'save_dir': './ckpt/', 'logs_dir': './log_info.log'}
+[2026-05-05 19:56:35,507][main.py][line:113][INFO] total params:1.2091M
+[2026-05-05 19:56:35,508][main.py][line:120][INFO] Test Mode
+[2026-05-05 19:56:35,508][main.py][line:26][INFO] loading pretrained checkpoint from ./ckpt/ucf__8636.pkl.
+[2026-05-05 19:58:10,998][main.py][line:87][INFO] Config:{'dataset': 'ucf-crime', 'model_name': 'ucf_', 'metrics': 'AUC', 'feat_prefix': '/home/hugo/Desktop/TFG/ucf_crime/UCF_ten_onecrop_16', 'train_list': './list/ucf/train.list', 'test_list': './list/ucf/test.list', 'token_feat': './list/ucf/ucf-prompt.npy', 'gt': './list/ucf/ucf-gt-updated.npy', 'win_size': 9, 'gamma': 0.6, 'bias': 0.2, 'norm': True, 't_step': 9, 'temp': 0.09, 'lamda': 1, 'seed': 9, 'test_bs': 10, 'smooth': 'slide', 'kappa': 7, 'ckpt_path': './ckpt/ucf__8636.pkl', 'feat_dim': 1024, 'head_num': 1, 'hid_dim': 128, 'out_dim': 300, 'lr': 0.0005, 'dropout': 0.1, 'train_bs': 128, 'max_seqlen': 200, 'max_epoch': 50, 'workers': 8, 'save_dir': './ckpt/', 'logs_dir': './log_info.log'}
+[2026-05-05 19:58:13,733][main.py][line:113][INFO] total params:1.2091M
+[2026-05-05 19:58:13,733][main.py][line:120][INFO] Test Mode
+[2026-05-05 19:58:13,733][main.py][line:26][INFO] loading pretrained checkpoint from ./ckpt/ucf__8636.pkl.
+[2026-05-05 19:58:25,340][infer.py][line:83][INFO] offline AUC:0.8189 AP:0.2313 FAR:0.0247 | Complete in 0m 12s
+
