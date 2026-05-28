@@ -5,9 +5,9 @@ def build_config(dataset):
         cfg.dataset = 'ucf-crime'
         cfg.model_name = 'ucf_'
         cfg.metrics = 'AUC'
-        cfg.feat_prefix = '/home/hugo/Desktop/TFG/ucf_crime/UCF_ten_onecrop_16'
-        cfg.train_list = './list/ucf/train.list'
-        cfg.test_list = './list/ucf/test.list'
+        cfg.feat_prefix = '/home/hugo/Desktop/TFG/ucf_crime/UCF_vjepa21_16_768'
+        cfg.train_list = './list/ucf/train_new.list'
+        cfg.test_list = './list/ucf/test_new.list'
         cfg.token_feat = './list/ucf/ucf-prompt.npy'
         cfg.gt = './list/ucf/ucf-gt-updated.npy'
         # TCA settings
@@ -22,7 +22,7 @@ def build_config(dataset):
         cfg.lamda = 1
         cfg.seed = 9
         # test settings
-        cfg.test_bs = 10
+        cfg.test_bs = 1 # 10 para i3d, 1 para vjepa21
         cfg.smooth = 'slide'  # ['fixed': 10, slide': 7]
         cfg.kappa = 7  # smooth window
         cfg.ckpt_path = './ckpt/ucf__8636.pkl'
@@ -75,13 +75,13 @@ def build_config(dataset):
         cfg.lamda = 9
         cfg.seed = 0
         # test settings
-        cfg.test_bs = 1
+        cfg.test_bs = 10
         cfg.smooth = 'slide'  # ['fixed': 5, slide': 3]
         cfg.kappa = 3  # smooth window
         cfg.ckpt_path = './ckpt/SH__98.pkl'
 
     # base settings
-    cfg.feat_dim = 1024
+    cfg.feat_dim = 768 # 1024 para i3d, 768 para vjepa21
     cfg.head_num = 1
     cfg.hid_dim = 128
     cfg.out_dim = 300
@@ -89,7 +89,7 @@ def build_config(dataset):
     cfg.dropout = 0.1
     cfg.train_bs = 128
     cfg.max_seqlen = 200
-    cfg.max_epoch = 50
+    cfg.max_epoch = 200
     cfg.workers = 8
     cfg.save_dir = './ckpt/'
     cfg.logs_dir = './log_info.log'

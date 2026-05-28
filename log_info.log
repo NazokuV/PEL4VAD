@@ -151,3 +151,984 @@
 [2026-05-05 19:58:13,733][main.py][line:26][INFO] loading pretrained checkpoint from ./ckpt/ucf__8636.pkl.
 [2026-05-05 19:58:25,340][infer.py][line:83][INFO] offline AUC:0.8189 AP:0.2313 FAR:0.0247 | Complete in 0m 12s
 
+[2026-05-07 23:09:03,561][main.py][line:87][INFO] Config:{'dataset': 'ucf-crime', 'model_name': 'ucf_', 'metrics': 'AUC', 'feat_prefix': '/home/hugo/Desktop/TFG/ucf_crime/UCF_ten_onecrop_16', 'train_list': './list/ucf/train.list', 'test_list': './list/ucf/test.list', 'token_feat': './list/ucf/ucf-prompt.npy', 'gt': './list/ucf/ucf-gt-updated.npy', 'win_size': 9, 'gamma': 0.6, 'bias': 0.2, 'norm': True, 't_step': 9, 'temp': 0.09, 'lamda': 1, 'seed': 9, 'test_bs': 10, 'smooth': 'slide', 'kappa': 7, 'ckpt_path': './ckpt/ucf__8636.pkl', 'feat_dim': 1024, 'head_num': 1, 'hid_dim': 128, 'out_dim': 300, 'lr': 0.0005, 'dropout': 0.1, 'train_bs': 128, 'max_seqlen': 200, 'max_epoch': 50, 'workers': 8, 'save_dir': './ckpt/', 'logs_dir': './log_info.log'}
+[2026-05-07 23:09:06,289][main.py][line:113][INFO] total params:1.2091M
+[2026-05-07 23:09:06,289][main.py][line:120][INFO] Test Mode
+[2026-05-07 23:09:06,289][main.py][line:26][INFO] loading pretrained checkpoint from ./ckpt/ucf__8636.pkl.
+[2026-05-07 23:09:17,612][infer.py][line:83][INFO] offline AUC:0.8189 AP:0.2313 FAR:0.0247 | Complete in 0m 11s
+
+[2026-05-12 18:14:06,892][main.py][line:87][INFO] Config:{'dataset': 'ucf-crime', 'model_name': 'ucf_', 'metrics': 'AUC', 'feat_prefix': '/home/hugo/Desktop/TFG/ucf_crime/UCF_vjepa2', 'train_list': './list/ucf/train.list', 'test_list': './list/ucf/test.list', 'token_feat': './list/ucf/ucf-prompt.npy', 'gt': './list/ucf/ucf-gt-updated.npy', 'win_size': 9, 'gamma': 0.6, 'bias': 0.2, 'norm': True, 't_step': 9, 'temp': 0.09, 'lamda': 1, 'seed': 9, 'test_bs': 10, 'smooth': 'slide', 'kappa': 7, 'ckpt_path': './ckpt/ucf__8636.pkl', 'feat_dim': 1024, 'head_num': 1, 'hid_dim': 128, 'out_dim': 300, 'lr': 0.0005, 'dropout': 0.1, 'train_bs': 128, 'max_seqlen': 200, 'max_epoch': 50, 'workers': 8, 'save_dir': './ckpt/', 'logs_dir': './log_info.log'}
+[2026-05-12 18:14:09,702][main.py][line:113][INFO] total params:1.2091M
+[2026-05-12 18:14:09,702][main.py][line:116][INFO] Training Mode
+[2026-05-12 18:14:10,598][main.py][line:53][INFO] Model:XModel(
+  (self_attention): XEncoder(
+    (self_attn): TCA(
+      (q): Linear(in_features=1024, out_features=128, bias=True)
+      (k): Linear(in_features=1024, out_features=128, bias=True)
+      (v): Linear(in_features=1024, out_features=128, bias=True)
+      (o): Linear(in_features=128, out_features=1024, bias=True)
+      (act): Softmax(dim=-1)
+    )
+    (linear1): Conv1d(1024, 512, kernel_size=(1,), stride=(1,))
+    (linear2): Conv1d(512, 300, kernel_size=(1,), stride=(1,))
+    (dropout1): Dropout(p=0.1, inplace=False)
+    (dropout2): Dropout(p=0.1, inplace=False)
+    (norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (loc_adj): DistanceAdj()
+  )
+  (classifier): Conv1d(300, 1, kernel_size=(9,), stride=(1,))
+)
+
+[2026-05-12 18:14:10,598][main.py][line:54][INFO] Optimizer:Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    decoupled_weight_decay: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0005
+    lr: 0.0005
+    maximize: False
+    weight_decay: 0
+)
+
+[2026-05-12 18:27:40,835][main.py][line:87][INFO] Config:{'dataset': 'ucf-crime', 'model_name': 'ucf_', 'metrics': 'AUC', 'feat_prefix': '/home/hugo/Desktop/TFG/ucf_crime/UCF_vjepa2', 'train_list': './list/ucf/train.list', 'test_list': './list/ucf/test.list', 'token_feat': './list/ucf/ucf-prompt.npy', 'gt': './list/ucf/ucf-gt-updated.npy', 'win_size': 9, 'gamma': 0.6, 'bias': 0.2, 'norm': True, 't_step': 9, 'temp': 0.09, 'lamda': 1, 'seed': 9, 'test_bs': 10, 'smooth': 'slide', 'kappa': 7, 'ckpt_path': './ckpt/ucf__8636.pkl', 'feat_dim': 1024, 'head_num': 1, 'hid_dim': 128, 'out_dim': 300, 'lr': 0.0005, 'dropout': 0.1, 'train_bs': 128, 'max_seqlen': 200, 'max_epoch': 50, 'workers': 8, 'save_dir': './ckpt/', 'logs_dir': './log_info.log'}
+[2026-05-12 18:27:43,547][main.py][line:113][INFO] total params:1.2091M
+[2026-05-12 18:27:43,547][main.py][line:116][INFO] Training Mode
+[2026-05-12 18:27:44,125][main.py][line:53][INFO] Model:XModel(
+  (self_attention): XEncoder(
+    (self_attn): TCA(
+      (q): Linear(in_features=1024, out_features=128, bias=True)
+      (k): Linear(in_features=1024, out_features=128, bias=True)
+      (v): Linear(in_features=1024, out_features=128, bias=True)
+      (o): Linear(in_features=128, out_features=1024, bias=True)
+      (act): Softmax(dim=-1)
+    )
+    (linear1): Conv1d(1024, 512, kernel_size=(1,), stride=(1,))
+    (linear2): Conv1d(512, 300, kernel_size=(1,), stride=(1,))
+    (dropout1): Dropout(p=0.1, inplace=False)
+    (dropout2): Dropout(p=0.1, inplace=False)
+    (norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (loc_adj): DistanceAdj()
+  )
+  (classifier): Conv1d(300, 1, kernel_size=(9,), stride=(1,))
+)
+
+[2026-05-12 18:27:44,125][main.py][line:54][INFO] Optimizer:Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    decoupled_weight_decay: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0005
+    lr: 0.0005
+    maximize: False
+    weight_decay: 0
+)
+
+[2026-05-26 18:49:29,485][main.py][line:87][INFO] Config:{'dataset': 'ucf-crime', 'model_name': 'ucf_', 'metrics': 'AUC', 'feat_prefix': '/home/hugo/Desktop/TFG/ucf_crime/UCF_ten_onecrop_16', 'train_list': './list/ucf/train.list', 'test_list': './list/ucf/test.list', 'token_feat': './list/ucf/ucf-prompt.npy', 'gt': './list/ucf/ucf-gt-updated.npy', 'win_size': 9, 'gamma': 0.6, 'bias': 0.2, 'norm': True, 't_step': 9, 'temp': 0.09, 'lamda': 1, 'seed': 9, 'test_bs': 10, 'smooth': 'slide', 'kappa': 7, 'ckpt_path': './ckpt/ucf__8636.pkl', 'feat_dim': 1024, 'head_num': 1, 'hid_dim': 128, 'out_dim': 300, 'lr': 0.0005, 'dropout': 0.1, 'train_bs': 128, 'max_seqlen': 200, 'max_epoch': 50, 'workers': 8, 'save_dir': './ckpt/', 'logs_dir': './log_info.log'}
+[2026-05-26 18:49:32,278][main.py][line:113][INFO] total params:1.2091M
+[2026-05-26 18:49:32,278][main.py][line:116][INFO] Training Mode
+[2026-05-26 18:49:33,235][main.py][line:53][INFO] Model:XModel(
+  (self_attention): XEncoder(
+    (self_attn): TCA(
+      (q): Linear(in_features=1024, out_features=128, bias=True)
+      (k): Linear(in_features=1024, out_features=128, bias=True)
+      (v): Linear(in_features=1024, out_features=128, bias=True)
+      (o): Linear(in_features=128, out_features=1024, bias=True)
+      (act): Softmax(dim=-1)
+    )
+    (linear1): Conv1d(1024, 512, kernel_size=(1,), stride=(1,))
+    (linear2): Conv1d(512, 300, kernel_size=(1,), stride=(1,))
+    (dropout1): Dropout(p=0.1, inplace=False)
+    (dropout2): Dropout(p=0.1, inplace=False)
+    (norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (loc_adj): DistanceAdj()
+  )
+  (classifier): Conv1d(300, 1, kernel_size=(9,), stride=(1,))
+)
+
+[2026-05-26 18:49:33,235][main.py][line:54][INFO] Optimizer:Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    decoupled_weight_decay: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0005
+    lr: 0.0005
+    maximize: False
+    weight_decay: 0
+)
+
+[2026-05-26 18:49:44,006][main.py][line:57][INFO] Random initialize AUC:0.5463 FAR:0.64897
+[2026-05-26 18:51:03,650][main.py][line:74][INFO] [Epoch:1/50]: loss1:0.3760 loss2:1.1002 | AUC:0.7840 FAR:0.03132
+[2026-05-26 18:52:28,715][main.py][line:74][INFO] [Epoch:2/50]: loss1:0.1372 loss2:0.8715 | AUC:0.7861 FAR:0.01550
+[2026-05-26 18:53:59,107][main.py][line:74][INFO] [Epoch:3/50]: loss1:0.0583 loss2:0.7772 | AUC:0.7949 FAR:0.02867
+[2026-05-26 18:55:27,481][main.py][line:74][INFO] [Epoch:4/50]: loss1:0.0427 loss2:0.7115 | AUC:0.7912 FAR:0.03431
+[2026-05-26 18:56:56,324][main.py][line:74][INFO] [Epoch:5/50]: loss1:0.0255 loss2:0.6411 | AUC:0.7969 FAR:0.01721
+[2026-05-26 18:58:22,688][main.py][line:74][INFO] [Epoch:6/50]: loss1:0.0140 loss2:0.5742 | AUC:0.7980 FAR:0.01510
+[2026-05-26 18:59:50,614][main.py][line:74][INFO] [Epoch:7/50]: loss1:0.0217 loss2:0.5288 | AUC:0.7945 FAR:0.02566
+[2026-05-26 19:01:19,320][main.py][line:74][INFO] [Epoch:8/50]: loss1:0.0400 loss2:0.5023 | AUC:0.7993 FAR:0.01799
+[2026-05-26 19:02:53,049][main.py][line:74][INFO] [Epoch:9/50]: loss1:0.0089 loss2:0.4235 | AUC:0.7956 FAR:0.01987
+[2026-05-26 19:04:22,805][main.py][line:74][INFO] [Epoch:10/50]: loss1:0.0073 loss2:0.3683 | AUC:0.7958 FAR:0.02218
+[2026-05-26 19:05:55,926][main.py][line:74][INFO] [Epoch:11/50]: loss1:0.0069 loss2:0.3171 | AUC:0.7927 FAR:0.02109
+[2026-05-26 19:07:28,281][main.py][line:74][INFO] [Epoch:12/50]: loss1:0.0070 loss2:0.2735 | AUC:0.7972 FAR:0.01764
+[2026-05-26 19:08:59,209][main.py][line:74][INFO] [Epoch:13/50]: loss1:0.0060 loss2:0.2329 | AUC:0.7982 FAR:0.01790
+[2026-05-26 19:10:29,896][main.py][line:74][INFO] [Epoch:14/50]: loss1:0.0234 loss2:0.2318 | AUC:0.7838 FAR:0.03243
+[2026-05-26 19:11:59,923][main.py][line:74][INFO] [Epoch:15/50]: loss1:0.0282 loss2:0.2430 | AUC:0.7938 FAR:0.01888
+[2026-05-26 19:13:30,522][main.py][line:74][INFO] [Epoch:16/50]: loss1:0.0144 loss2:0.1863 | AUC:0.7858 FAR:0.01188
+[2026-05-26 19:15:01,217][main.py][line:74][INFO] [Epoch:17/50]: loss1:0.0091 loss2:0.1602 | AUC:0.7968 FAR:0.01968
+[2026-05-26 19:16:29,860][main.py][line:74][INFO] [Epoch:18/50]: loss1:0.0039 loss2:0.1207 | AUC:0.7964 FAR:0.01924
+[2026-05-26 19:17:55,699][main.py][line:74][INFO] [Epoch:19/50]: loss1:0.0032 loss2:0.0998 | AUC:0.7968 FAR:0.01609
+[2026-05-26 19:19:21,176][main.py][line:74][INFO] [Epoch:20/50]: loss1:0.0028 loss2:0.0832 | AUC:0.7935 FAR:0.01839
+[2026-05-26 19:20:46,925][main.py][line:74][INFO] [Epoch:21/50]: loss1:0.0025 loss2:0.0685 | AUC:0.7962 FAR:0.01757
+[2026-05-26 19:22:07,796][main.py][line:74][INFO] [Epoch:22/50]: loss1:0.0026 loss2:0.0612 | AUC:0.7942 FAR:0.01371
+[2026-05-26 19:23:27,776][main.py][line:74][INFO] [Epoch:23/50]: loss1:0.0024 loss2:0.0545 | AUC:0.7962 FAR:0.01331
+[2026-05-26 19:24:48,973][main.py][line:74][INFO] [Epoch:24/50]: loss1:0.0021 loss2:0.0463 | AUC:0.7952 FAR:0.02046
+[2026-05-26 19:26:10,130][main.py][line:74][INFO] [Epoch:25/50]: loss1:0.0016 loss2:0.0394 | AUC:0.7930 FAR:0.01637
+[2026-05-26 19:27:31,538][main.py][line:74][INFO] [Epoch:26/50]: loss1:0.0014 loss2:0.0343 | AUC:0.7924 FAR:0.01747
+[2026-05-26 19:28:53,584][main.py][line:74][INFO] [Epoch:27/50]: loss1:0.0012 loss2:0.0306 | AUC:0.7903 FAR:0.01507
+[2026-05-26 19:30:17,613][main.py][line:74][INFO] [Epoch:28/50]: loss1:0.0022 loss2:0.0296 | AUC:0.7907 FAR:0.01686
+[2026-05-26 19:31:42,801][main.py][line:74][INFO] [Epoch:29/50]: loss1:0.0190 loss2:0.0601 | AUC:0.7848 FAR:0.02274
+[2026-05-26 19:33:13,493][main.py][line:74][INFO] [Epoch:30/50]: loss1:0.0052 loss2:0.0397 | AUC:0.7909 FAR:0.01846
+[2026-05-26 19:34:43,097][main.py][line:74][INFO] [Epoch:31/50]: loss1:0.0018 loss2:0.0281 | AUC:0.7928 FAR:0.01999
+[2026-05-26 19:36:13,516][main.py][line:74][INFO] [Epoch:32/50]: loss1:0.0019 loss2:0.0248 | AUC:0.7928 FAR:0.01731
+[2026-05-26 19:37:39,675][main.py][line:74][INFO] [Epoch:33/50]: loss1:0.0015 loss2:0.0213 | AUC:0.7908 FAR:0.01693
+[2026-05-26 19:39:10,213][main.py][line:74][INFO] [Epoch:34/50]: loss1:0.0010 loss2:0.0181 | AUC:0.7918 FAR:0.01665
+[2026-05-26 19:40:42,146][main.py][line:74][INFO] [Epoch:35/50]: loss1:0.0008 loss2:0.0151 | AUC:0.7915 FAR:0.01707
+[2026-05-26 19:42:05,901][main.py][line:74][INFO] [Epoch:36/50]: loss1:0.0007 loss2:0.0143 | AUC:0.7914 FAR:0.01651
+[2026-05-26 19:43:29,679][main.py][line:74][INFO] [Epoch:37/50]: loss1:0.0007 loss2:0.0132 | AUC:0.7909 FAR:0.01632
+[2026-05-26 19:44:55,807][main.py][line:74][INFO] [Epoch:38/50]: loss1:0.0007 loss2:0.0125 | AUC:0.7899 FAR:0.01677
+[2026-05-26 19:46:19,966][main.py][line:74][INFO] [Epoch:39/50]: loss1:0.0007 loss2:0.0123 | AUC:0.7917 FAR:0.01656
+[2026-05-26 19:47:44,670][main.py][line:74][INFO] [Epoch:40/50]: loss1:0.0008 loss2:0.0113 | AUC:0.7899 FAR:0.01696
+[2026-05-26 19:49:14,363][main.py][line:74][INFO] [Epoch:41/50]: loss1:0.0006 loss2:0.0104 | AUC:0.7916 FAR:0.01757
+[2026-05-26 19:50:42,751][main.py][line:74][INFO] [Epoch:42/50]: loss1:0.0005 loss2:0.0102 | AUC:0.7899 FAR:0.01710
+[2026-05-26 19:52:14,252][main.py][line:74][INFO] [Epoch:43/50]: loss1:0.0005 loss2:0.0096 | AUC:0.7906 FAR:0.01667
+[2026-05-26 19:53:42,694][main.py][line:74][INFO] [Epoch:44/50]: loss1:0.0005 loss2:0.0085 | AUC:0.7898 FAR:0.01630
+[2026-05-26 19:55:04,293][main.py][line:74][INFO] [Epoch:45/50]: loss1:0.0006 loss2:0.0086 | AUC:0.7922 FAR:0.01672
+[2026-05-26 19:56:25,836][main.py][line:74][INFO] [Epoch:46/50]: loss1:0.0005 loss2:0.0086 | AUC:0.7900 FAR:0.01538
+[2026-05-26 19:57:52,456][main.py][line:74][INFO] [Epoch:47/50]: loss1:0.0004 loss2:0.0080 | AUC:0.7899 FAR:0.01639
+[2026-05-26 19:59:21,606][main.py][line:74][INFO] [Epoch:48/50]: loss1:0.0004 loss2:0.0077 | AUC:0.7887 FAR:0.01620
+[2026-05-26 20:00:50,616][main.py][line:74][INFO] [Epoch:49/50]: loss1:0.0004 loss2:0.0077 | AUC:0.7893 FAR:0.01639
+[2026-05-26 20:02:20,392][main.py][line:74][INFO] [Epoch:50/50]: loss1:0.0004 loss2:0.0075 | AUC:0.7888 FAR:0.01639
+[2026-05-26 20:02:20,406][main.py][line:80][INFO] Training completes in 72m 36s | best AUC:0.7993 FAR:0.01799
+
+[2026-05-26 20:41:19,489][main.py][line:87][INFO] Config:{'dataset': 'ucf-crime', 'model_name': 'ucf_', 'metrics': 'AUC', 'feat_prefix': '/home/hugo/Desktop/TFG/ucf_crime/UCF_vjepa21_16', 'train_list': './list/ucf/train_new.list', 'test_list': './list/ucf/test_new.list', 'token_feat': './list/ucf/ucf-prompt.npy', 'gt': './list/ucf/ucf-gt-updated.npy', 'win_size': 9, 'gamma': 0.6, 'bias': 0.2, 'norm': True, 't_step': 9, 'temp': 0.09, 'lamda': 1, 'seed': 9, 'test_bs': 1, 'smooth': 'slide', 'kappa': 7, 'ckpt_path': './ckpt/ucf__8636.pkl', 'feat_dim': 1024, 'head_num': 1, 'hid_dim': 128, 'out_dim': 300, 'lr': 0.0005, 'dropout': 0.1, 'train_bs': 128, 'max_seqlen': 200, 'max_epoch': 50, 'workers': 8, 'save_dir': './ckpt/', 'logs_dir': './log_info.log'}
+[2026-05-26 20:41:22,203][main.py][line:113][INFO] total params:1.2091M
+[2026-05-26 20:41:22,203][main.py][line:116][INFO] Training Mode
+[2026-05-26 20:41:22,935][main.py][line:53][INFO] Model:XModel(
+  (self_attention): XEncoder(
+    (self_attn): TCA(
+      (q): Linear(in_features=1024, out_features=128, bias=True)
+      (k): Linear(in_features=1024, out_features=128, bias=True)
+      (v): Linear(in_features=1024, out_features=128, bias=True)
+      (o): Linear(in_features=128, out_features=1024, bias=True)
+      (act): Softmax(dim=-1)
+    )
+    (linear1): Conv1d(1024, 512, kernel_size=(1,), stride=(1,))
+    (linear2): Conv1d(512, 300, kernel_size=(1,), stride=(1,))
+    (dropout1): Dropout(p=0.1, inplace=False)
+    (dropout2): Dropout(p=0.1, inplace=False)
+    (norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (loc_adj): DistanceAdj()
+  )
+  (classifier): Conv1d(300, 1, kernel_size=(9,), stride=(1,))
+)
+
+[2026-05-26 20:41:22,935][main.py][line:54][INFO] Optimizer:Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    decoupled_weight_decay: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0005
+    lr: 0.0005
+    maximize: False
+    weight_decay: 0
+)
+
+[2026-05-26 20:41:28,196][main.py][line:57][INFO] Random initialize AUC:0.5837 FAR:0.93823
+[2026-05-26 20:41:40,046][main.py][line:74][INFO] [Epoch:1/50]: loss1:0.6508 loss2:1.3322 | AUC:0.5893 FAR:0.85840
+[2026-05-26 20:41:51,289][main.py][line:74][INFO] [Epoch:2/50]: loss1:0.3745 loss2:1.2380 | AUC:0.6178 FAR:0.28269
+[2026-05-26 20:42:03,113][main.py][line:74][INFO] [Epoch:3/50]: loss1:0.3577 loss2:1.1916 | AUC:0.6808 FAR:0.75588
+[2026-05-26 20:42:14,272][main.py][line:74][INFO] [Epoch:4/50]: loss1:0.3485 loss2:1.1666 | AUC:0.6977 FAR:0.94515
+[2026-05-26 20:42:25,492][main.py][line:74][INFO] [Epoch:5/50]: loss1:0.3422 loss2:1.1493 | AUC:0.6825 FAR:0.87483
+[2026-05-26 20:42:36,688][main.py][line:74][INFO] [Epoch:6/50]: loss1:0.3302 loss2:1.1291 | AUC:0.5761 FAR:0.96742
+[2026-05-26 20:42:48,045][main.py][line:74][INFO] [Epoch:7/50]: loss1:0.3354 loss2:1.1173 | AUC:0.6837 FAR:0.95064
+[2026-05-26 20:42:58,769][main.py][line:74][INFO] [Epoch:8/50]: loss1:0.3293 loss2:1.1173 | AUC:0.5757 FAR:0.94694
+[2026-05-26 20:43:09,873][main.py][line:74][INFO] [Epoch:9/50]: loss1:0.3229 loss2:1.1106 | AUC:0.6505 FAR:0.94271
+[2026-05-26 20:43:21,267][main.py][line:74][INFO] [Epoch:10/50]: loss1:0.3295 loss2:1.0958 | AUC:0.6400 FAR:0.85719
+[2026-05-26 20:43:32,382][main.py][line:74][INFO] [Epoch:11/50]: loss1:0.3251 loss2:1.1004 | AUC:0.6592 FAR:0.86490
+[2026-05-26 20:43:43,512][main.py][line:74][INFO] [Epoch:12/50]: loss1:0.3173 loss2:1.0958 | AUC:0.6807 FAR:0.92500
+[2026-05-26 20:43:55,349][main.py][line:74][INFO] [Epoch:13/50]: loss1:0.3176 loss2:1.0831 | AUC:0.6329 FAR:0.94508
+[2026-05-26 20:44:06,860][main.py][line:74][INFO] [Epoch:14/50]: loss1:0.3138 loss2:1.0941 | AUC:0.5772 FAR:0.96756
+[2026-05-26 20:44:18,216][main.py][line:74][INFO] [Epoch:15/50]: loss1:0.3177 loss2:1.0833 | AUC:0.5862 FAR:0.95515
+[2026-05-26 20:44:28,670][main.py][line:74][INFO] [Epoch:16/50]: loss1:0.3202 loss2:1.0723 | AUC:0.6375 FAR:0.84520
+[2026-05-26 20:44:39,239][main.py][line:74][INFO] [Epoch:17/50]: loss1:0.3083 loss2:1.0653 | AUC:0.6585 FAR:0.95131
+[2026-05-26 20:44:50,032][main.py][line:74][INFO] [Epoch:18/50]: loss1:0.3112 loss2:1.0624 | AUC:0.6544 FAR:0.95918
+[2026-05-26 20:45:01,352][main.py][line:74][INFO] [Epoch:19/50]: loss1:0.3101 loss2:1.0555 | AUC:0.6701 FAR:0.81596
+[2026-05-26 20:45:12,615][main.py][line:74][INFO] [Epoch:20/50]: loss1:0.3078 loss2:1.0545 | AUC:0.5849 FAR:0.94741
+[2026-05-26 20:45:23,696][main.py][line:74][INFO] [Epoch:21/50]: loss1:0.3056 loss2:1.0360 | AUC:0.6841 FAR:0.89858
+[2026-05-26 20:45:35,491][main.py][line:74][INFO] [Epoch:22/50]: loss1:0.3105 loss2:1.0416 | AUC:0.6371 FAR:0.90400
+[2026-05-26 20:45:47,757][main.py][line:74][INFO] [Epoch:23/50]: loss1:0.3012 loss2:1.0332 | AUC:0.6527 FAR:0.94085
+[2026-05-26 20:45:58,690][main.py][line:74][INFO] [Epoch:24/50]: loss1:0.3224 loss2:1.0381 | AUC:0.5991 FAR:0.95462
+[2026-05-26 20:46:09,967][main.py][line:74][INFO] [Epoch:25/50]: loss1:0.3023 loss2:1.0296 | AUC:0.6103 FAR:0.95575
+[2026-05-26 20:46:20,668][main.py][line:74][INFO] [Epoch:26/50]: loss1:0.2978 loss2:1.0163 | AUC:0.6270 FAR:0.95016
+[2026-05-26 20:46:31,567][main.py][line:74][INFO] [Epoch:27/50]: loss1:0.2931 loss2:1.0199 | AUC:0.6349 FAR:0.89450
+[2026-05-26 20:46:42,327][main.py][line:74][INFO] [Epoch:28/50]: loss1:0.2888 loss2:1.0105 | AUC:0.6220 FAR:0.94226
+[2026-05-26 20:46:53,532][main.py][line:74][INFO] [Epoch:29/50]: loss1:0.2877 loss2:1.0079 | AUC:0.6336 FAR:0.84948
+[2026-05-26 20:47:05,445][main.py][line:74][INFO] [Epoch:30/50]: loss1:0.2898 loss2:1.0112 | AUC:0.6800 FAR:0.84000
+[2026-05-26 20:47:16,074][main.py][line:74][INFO] [Epoch:31/50]: loss1:0.2860 loss2:1.0043 | AUC:0.6521 FAR:0.78682
+[2026-05-26 20:47:27,357][main.py][line:74][INFO] [Epoch:32/50]: loss1:0.2827 loss2:0.9991 | AUC:0.6894 FAR:0.83866
+[2026-05-26 20:47:37,988][main.py][line:74][INFO] [Epoch:33/50]: loss1:0.2901 loss2:1.0023 | AUC:0.6860 FAR:0.66248
+[2026-05-26 20:47:49,080][main.py][line:74][INFO] [Epoch:34/50]: loss1:0.2828 loss2:0.9904 | AUC:0.6856 FAR:0.59209
+[2026-05-26 20:47:59,906][main.py][line:74][INFO] [Epoch:35/50]: loss1:0.2802 loss2:0.9780 | AUC:0.6736 FAR:0.78078
+[2026-05-26 20:48:11,216][main.py][line:74][INFO] [Epoch:36/50]: loss1:0.2748 loss2:0.9820 | AUC:0.6589 FAR:0.78157
+[2026-05-26 20:48:22,087][main.py][line:74][INFO] [Epoch:37/50]: loss1:0.2726 loss2:0.9740 | AUC:0.6847 FAR:0.87996
+[2026-05-26 20:48:33,054][main.py][line:74][INFO] [Epoch:38/50]: loss1:0.2769 loss2:0.9792 | AUC:0.6743 FAR:0.78462
+[2026-05-26 20:48:44,065][main.py][line:74][INFO] [Epoch:39/50]: loss1:0.2682 loss2:0.9754 | AUC:0.6875 FAR:0.51057
+[2026-05-26 20:48:55,425][main.py][line:74][INFO] [Epoch:40/50]: loss1:0.2707 loss2:0.9697 | AUC:0.6705 FAR:0.81721
+[2026-05-26 20:49:07,156][main.py][line:74][INFO] [Epoch:41/50]: loss1:0.2644 loss2:0.9565 | AUC:0.6865 FAR:0.52960
+[2026-05-26 20:49:18,113][main.py][line:74][INFO] [Epoch:42/50]: loss1:0.2680 loss2:0.9635 | AUC:0.6912 FAR:0.68530
+[2026-05-26 20:49:28,605][main.py][line:74][INFO] [Epoch:43/50]: loss1:0.2681 loss2:0.9619 | AUC:0.6759 FAR:0.75777
+[2026-05-26 20:49:40,006][main.py][line:74][INFO] [Epoch:44/50]: loss1:0.2600 loss2:0.9605 | AUC:0.6701 FAR:0.81756
+[2026-05-26 20:49:52,021][main.py][line:74][INFO] [Epoch:45/50]: loss1:0.2636 loss2:0.9600 | AUC:0.6844 FAR:0.81806
+[2026-05-26 20:50:02,557][main.py][line:74][INFO] [Epoch:46/50]: loss1:0.2642 loss2:0.9620 | AUC:0.6782 FAR:0.71285
+[2026-05-26 20:50:13,606][main.py][line:74][INFO] [Epoch:47/50]: loss1:0.2590 loss2:0.9550 | AUC:0.6934 FAR:0.65293
+[2026-05-26 20:50:24,887][main.py][line:74][INFO] [Epoch:48/50]: loss1:0.2542 loss2:0.9515 | AUC:0.6831 FAR:0.69315
+[2026-05-26 20:50:35,541][main.py][line:74][INFO] [Epoch:49/50]: loss1:0.2521 loss2:0.9497 | AUC:0.6926 FAR:0.47575
+[2026-05-26 20:50:46,510][main.py][line:74][INFO] [Epoch:50/50]: loss1:0.2575 loss2:0.9476 | AUC:0.6899 FAR:0.54516
+[2026-05-26 20:50:46,564][main.py][line:80][INFO] Training completes in 9m 18s | best AUC:0.6977 FAR:0.94515
+
+[2026-05-26 20:52:27,863][main.py][line:87][INFO] Config:{'dataset': 'ucf-crime', 'model_name': 'ucf_', 'metrics': 'AUC', 'feat_prefix': '/home/hugo/Desktop/TFG/ucf_crime/UCF_vjepa21_16', 'train_list': './list/ucf/train_new.list', 'test_list': './list/ucf/test_new.list', 'token_feat': './list/ucf/ucf-prompt.npy', 'gt': './list/ucf/ucf-gt-updated.npy', 'win_size': 9, 'gamma': 0.6, 'bias': 0.2, 'norm': True, 't_step': 9, 'temp': 0.09, 'lamda': 1, 'seed': 9, 'test_bs': 1, 'smooth': 'slide', 'kappa': 7, 'ckpt_path': './ckpt/ucf__8636.pkl', 'feat_dim': 1024, 'head_num': 1, 'hid_dim': 128, 'out_dim': 300, 'lr': 0.0005, 'dropout': 0.1, 'train_bs': 128, 'max_seqlen': 200, 'max_epoch': 500, 'workers': 8, 'save_dir': './ckpt/', 'logs_dir': './log_info.log'}
+[2026-05-26 20:52:30,590][main.py][line:113][INFO] total params:1.2091M
+[2026-05-26 20:52:30,590][main.py][line:116][INFO] Training Mode
+[2026-05-26 20:52:31,147][main.py][line:53][INFO] Model:XModel(
+  (self_attention): XEncoder(
+    (self_attn): TCA(
+      (q): Linear(in_features=1024, out_features=128, bias=True)
+      (k): Linear(in_features=1024, out_features=128, bias=True)
+      (v): Linear(in_features=1024, out_features=128, bias=True)
+      (o): Linear(in_features=128, out_features=1024, bias=True)
+      (act): Softmax(dim=-1)
+    )
+    (linear1): Conv1d(1024, 512, kernel_size=(1,), stride=(1,))
+    (linear2): Conv1d(512, 300, kernel_size=(1,), stride=(1,))
+    (dropout1): Dropout(p=0.1, inplace=False)
+    (dropout2): Dropout(p=0.1, inplace=False)
+    (norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (loc_adj): DistanceAdj()
+  )
+  (classifier): Conv1d(300, 1, kernel_size=(9,), stride=(1,))
+)
+
+[2026-05-26 20:52:31,148][main.py][line:54][INFO] Optimizer:Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    decoupled_weight_decay: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0005
+    lr: 0.0005
+    maximize: False
+    weight_decay: 0
+)
+
+[2026-05-26 20:52:35,906][main.py][line:57][INFO] Random initialize AUC:0.5837 FAR:0.93823
+[2026-05-26 20:52:47,221][main.py][line:74][INFO] [Epoch:1/500]: loss1:0.6508 loss2:1.3322 | AUC:0.5893 FAR:0.85840
+[2026-05-26 20:52:58,124][main.py][line:74][INFO] [Epoch:2/500]: loss1:0.3745 loss2:1.2380 | AUC:0.6178 FAR:0.28269
+[2026-05-26 20:53:08,788][main.py][line:74][INFO] [Epoch:3/500]: loss1:0.3577 loss2:1.1916 | AUC:0.6808 FAR:0.75588
+[2026-05-26 20:53:19,753][main.py][line:74][INFO] [Epoch:4/500]: loss1:0.3485 loss2:1.1666 | AUC:0.6977 FAR:0.94515
+[2026-05-26 20:53:30,824][main.py][line:74][INFO] [Epoch:5/500]: loss1:0.3422 loss2:1.1493 | AUC:0.6825 FAR:0.87483
+[2026-05-26 20:53:42,132][main.py][line:74][INFO] [Epoch:6/500]: loss1:0.3302 loss2:1.1291 | AUC:0.5761 FAR:0.96742
+[2026-05-26 20:53:53,325][main.py][line:74][INFO] [Epoch:7/500]: loss1:0.3354 loss2:1.1173 | AUC:0.6837 FAR:0.95064
+[2026-05-26 20:54:04,713][main.py][line:74][INFO] [Epoch:8/500]: loss1:0.3293 loss2:1.1173 | AUC:0.5757 FAR:0.94694
+[2026-05-26 20:54:15,691][main.py][line:74][INFO] [Epoch:9/500]: loss1:0.3229 loss2:1.1106 | AUC:0.6505 FAR:0.94271
+[2026-05-26 20:54:27,112][main.py][line:74][INFO] [Epoch:10/500]: loss1:0.3295 loss2:1.0958 | AUC:0.6400 FAR:0.85719
+[2026-05-26 20:54:38,412][main.py][line:74][INFO] [Epoch:11/500]: loss1:0.3251 loss2:1.1004 | AUC:0.6592 FAR:0.86490
+[2026-05-26 20:54:49,438][main.py][line:74][INFO] [Epoch:12/500]: loss1:0.3173 loss2:1.0958 | AUC:0.6807 FAR:0.92500
+[2026-05-26 20:54:59,985][main.py][line:74][INFO] [Epoch:13/500]: loss1:0.3176 loss2:1.0831 | AUC:0.6329 FAR:0.94508
+[2026-05-26 20:55:10,818][main.py][line:74][INFO] [Epoch:14/500]: loss1:0.3138 loss2:1.0941 | AUC:0.5772 FAR:0.96756
+[2026-05-26 20:55:22,049][main.py][line:74][INFO] [Epoch:15/500]: loss1:0.3177 loss2:1.0833 | AUC:0.5862 FAR:0.95515
+[2026-05-26 20:55:33,536][main.py][line:74][INFO] [Epoch:16/500]: loss1:0.3202 loss2:1.0723 | AUC:0.6375 FAR:0.84520
+[2026-05-26 20:55:45,178][main.py][line:74][INFO] [Epoch:17/500]: loss1:0.3083 loss2:1.0653 | AUC:0.6585 FAR:0.95131
+[2026-05-26 20:55:56,081][main.py][line:74][INFO] [Epoch:18/500]: loss1:0.3112 loss2:1.0624 | AUC:0.6544 FAR:0.95918
+[2026-05-26 20:56:07,603][main.py][line:74][INFO] [Epoch:19/500]: loss1:0.3101 loss2:1.0555 | AUC:0.6701 FAR:0.81596
+[2026-05-26 20:56:18,457][main.py][line:74][INFO] [Epoch:20/500]: loss1:0.3078 loss2:1.0545 | AUC:0.5849 FAR:0.94741
+[2026-05-26 20:56:29,261][main.py][line:74][INFO] [Epoch:21/500]: loss1:0.3056 loss2:1.0360 | AUC:0.6841 FAR:0.89858
+[2026-05-26 20:56:40,304][main.py][line:74][INFO] [Epoch:22/500]: loss1:0.3105 loss2:1.0416 | AUC:0.6371 FAR:0.90400
+[2026-05-26 20:56:51,194][main.py][line:74][INFO] [Epoch:23/500]: loss1:0.3012 loss2:1.0332 | AUC:0.6527 FAR:0.94085
+[2026-05-26 20:57:01,921][main.py][line:74][INFO] [Epoch:24/500]: loss1:0.3224 loss2:1.0381 | AUC:0.5991 FAR:0.95462
+[2026-05-26 20:57:12,696][main.py][line:74][INFO] [Epoch:25/500]: loss1:0.3023 loss2:1.0296 | AUC:0.6103 FAR:0.95575
+[2026-05-26 20:57:23,417][main.py][line:74][INFO] [Epoch:26/500]: loss1:0.2978 loss2:1.0163 | AUC:0.6270 FAR:0.95016
+[2026-05-26 20:57:34,629][main.py][line:74][INFO] [Epoch:27/500]: loss1:0.2931 loss2:1.0199 | AUC:0.6349 FAR:0.89450
+[2026-05-26 20:57:45,354][main.py][line:74][INFO] [Epoch:28/500]: loss1:0.2888 loss2:1.0105 | AUC:0.6220 FAR:0.94226
+[2026-05-26 20:57:55,829][main.py][line:74][INFO] [Epoch:29/500]: loss1:0.2877 loss2:1.0079 | AUC:0.6336 FAR:0.84948
+[2026-05-26 20:58:07,067][main.py][line:74][INFO] [Epoch:30/500]: loss1:0.2898 loss2:1.0112 | AUC:0.6800 FAR:0.84000
+[2026-05-26 20:58:18,529][main.py][line:74][INFO] [Epoch:31/500]: loss1:0.2860 loss2:1.0043 | AUC:0.6521 FAR:0.78682
+[2026-05-26 20:58:29,044][main.py][line:74][INFO] [Epoch:32/500]: loss1:0.2827 loss2:0.9991 | AUC:0.6894 FAR:0.83866
+[2026-05-26 20:58:39,807][main.py][line:74][INFO] [Epoch:33/500]: loss1:0.2901 loss2:1.0023 | AUC:0.6860 FAR:0.66248
+[2026-05-26 20:58:50,456][main.py][line:74][INFO] [Epoch:34/500]: loss1:0.2828 loss2:0.9904 | AUC:0.6856 FAR:0.59209
+[2026-05-26 20:59:01,571][main.py][line:74][INFO] [Epoch:35/500]: loss1:0.2802 loss2:0.9780 | AUC:0.6736 FAR:0.78078
+[2026-05-26 20:59:12,962][main.py][line:74][INFO] [Epoch:36/500]: loss1:0.2748 loss2:0.9820 | AUC:0.6589 FAR:0.78157
+[2026-05-26 20:59:24,404][main.py][line:74][INFO] [Epoch:37/500]: loss1:0.2726 loss2:0.9740 | AUC:0.6847 FAR:0.87996
+[2026-05-26 20:59:35,418][main.py][line:74][INFO] [Epoch:38/500]: loss1:0.2769 loss2:0.9792 | AUC:0.6743 FAR:0.78462
+[2026-05-26 20:59:47,010][main.py][line:74][INFO] [Epoch:39/500]: loss1:0.2682 loss2:0.9754 | AUC:0.6875 FAR:0.51057
+[2026-05-26 20:59:57,681][main.py][line:74][INFO] [Epoch:40/500]: loss1:0.2707 loss2:0.9697 | AUC:0.6705 FAR:0.81721
+[2026-05-26 21:00:08,583][main.py][line:74][INFO] [Epoch:41/500]: loss1:0.2644 loss2:0.9565 | AUC:0.6865 FAR:0.52960
+[2026-05-26 21:00:20,432][main.py][line:74][INFO] [Epoch:42/500]: loss1:0.2680 loss2:0.9635 | AUC:0.6912 FAR:0.68530
+[2026-05-26 21:00:31,316][main.py][line:74][INFO] [Epoch:43/500]: loss1:0.2681 loss2:0.9619 | AUC:0.6759 FAR:0.75777
+[2026-05-26 21:00:42,827][main.py][line:74][INFO] [Epoch:44/500]: loss1:0.2600 loss2:0.9605 | AUC:0.6701 FAR:0.81756
+[2026-05-26 21:00:54,012][main.py][line:74][INFO] [Epoch:45/500]: loss1:0.2636 loss2:0.9600 | AUC:0.6844 FAR:0.81806
+[2026-05-26 21:01:05,922][main.py][line:74][INFO] [Epoch:46/500]: loss1:0.2642 loss2:0.9620 | AUC:0.6782 FAR:0.71285
+[2026-05-26 21:01:16,741][main.py][line:74][INFO] [Epoch:47/500]: loss1:0.2590 loss2:0.9550 | AUC:0.6934 FAR:0.65293
+[2026-05-26 21:01:27,574][main.py][line:74][INFO] [Epoch:48/500]: loss1:0.2542 loss2:0.9515 | AUC:0.6831 FAR:0.69315
+[2026-05-26 21:01:38,591][main.py][line:74][INFO] [Epoch:49/500]: loss1:0.2521 loss2:0.9497 | AUC:0.6926 FAR:0.47575
+[2026-05-26 21:01:49,868][main.py][line:74][INFO] [Epoch:50/500]: loss1:0.2575 loss2:0.9476 | AUC:0.6899 FAR:0.54516
+[2026-05-26 21:02:00,706][main.py][line:74][INFO] [Epoch:51/500]: loss1:0.2554 loss2:0.9518 | AUC:0.6866 FAR:0.79462
+[2026-05-26 21:02:12,425][main.py][line:74][INFO] [Epoch:52/500]: loss1:0.2581 loss2:0.9467 | AUC:0.6905 FAR:0.54473
+[2026-05-26 21:02:23,378][main.py][line:74][INFO] [Epoch:53/500]: loss1:0.2538 loss2:0.9413 | AUC:0.6836 FAR:0.62462
+[2026-05-26 21:02:34,642][main.py][line:74][INFO] [Epoch:54/500]: loss1:0.2509 loss2:0.9460 | AUC:0.6865 FAR:0.64544
+[2026-05-26 21:02:45,302][main.py][line:74][INFO] [Epoch:55/500]: loss1:0.2552 loss2:0.9410 | AUC:0.6867 FAR:0.58770
+[2026-05-26 21:02:56,072][main.py][line:74][INFO] [Epoch:56/500]: loss1:0.2505 loss2:0.9425 | AUC:0.6893 FAR:0.60023
+[2026-05-26 21:03:07,157][main.py][line:74][INFO] [Epoch:57/500]: loss1:0.2491 loss2:0.9434 | AUC:0.6912 FAR:0.56746
+[2026-05-26 21:03:18,083][main.py][line:74][INFO] [Epoch:58/500]: loss1:0.2513 loss2:0.9429 | AUC:0.6911 FAR:0.56185
+[2026-05-26 21:03:28,887][main.py][line:74][INFO] [Epoch:59/500]: loss1:0.2513 loss2:0.9477 | AUC:0.6903 FAR:0.57369
+[2026-05-26 21:03:39,875][main.py][line:74][INFO] [Epoch:60/500]: loss1:0.2530 loss2:0.9369 | AUC:0.6902 FAR:0.57474
+[2026-05-26 21:03:50,621][main.py][line:74][INFO] [Epoch:61/500]: loss1:0.2505 loss2:0.9444 | AUC:0.6902 FAR:0.57474
+[2026-05-26 21:04:02,108][main.py][line:74][INFO] [Epoch:62/500]: loss1:0.2507 loss2:0.9411 | AUC:0.6902 FAR:0.57619
+[2026-05-26 21:04:13,763][main.py][line:74][INFO] [Epoch:63/500]: loss1:0.2487 loss2:0.9497 | AUC:0.6897 FAR:0.57708
+[2026-05-26 21:04:24,617][main.py][line:74][INFO] [Epoch:64/500]: loss1:0.2532 loss2:0.9475 | AUC:0.6901 FAR:0.57199
+[2026-05-26 21:04:35,477][main.py][line:74][INFO] [Epoch:65/500]: loss1:0.2511 loss2:0.9458 | AUC:0.6883 FAR:0.60727
+[2026-05-26 21:04:46,501][main.py][line:74][INFO] [Epoch:66/500]: loss1:0.2501 loss2:0.9458 | AUC:0.6878 FAR:0.60414
+[2026-05-26 21:04:57,590][main.py][line:74][INFO] [Epoch:67/500]: loss1:0.2489 loss2:0.9413 | AUC:0.6899 FAR:0.58732
+[2026-05-26 21:05:08,366][main.py][line:74][INFO] [Epoch:68/500]: loss1:0.2505 loss2:0.9419 | AUC:0.6892 FAR:0.56972
+[2026-05-26 21:05:19,201][main.py][line:74][INFO] [Epoch:69/500]: loss1:0.2499 loss2:0.9370 | AUC:0.6885 FAR:0.58643
+[2026-05-26 21:05:31,366][main.py][line:74][INFO] [Epoch:70/500]: loss1:0.2515 loss2:0.9405 | AUC:0.6876 FAR:0.53077
+[2026-05-26 21:05:42,232][main.py][line:74][INFO] [Epoch:71/500]: loss1:0.2486 loss2:0.9409 | AUC:0.6928 FAR:0.53435
+[2026-05-26 21:05:52,854][main.py][line:74][INFO] [Epoch:72/500]: loss1:0.2502 loss2:0.9398 | AUC:0.6905 FAR:0.50878
+[2026-05-26 21:06:03,605][main.py][line:74][INFO] [Epoch:73/500]: loss1:0.2515 loss2:0.9394 | AUC:0.6928 FAR:0.60037
+[2026-05-26 21:06:14,167][main.py][line:74][INFO] [Epoch:74/500]: loss1:0.2491 loss2:0.9419 | AUC:0.6859 FAR:0.61455
+[2026-05-26 21:06:24,588][main.py][line:74][INFO] [Epoch:75/500]: loss1:0.2489 loss2:0.9384 | AUC:0.6866 FAR:0.54375
+[2026-05-26 21:06:35,849][main.py][line:74][INFO] [Epoch:76/500]: loss1:0.2504 loss2:0.9439 | AUC:0.6859 FAR:0.62696
+[2026-05-26 21:06:46,632][main.py][line:74][INFO] [Epoch:77/500]: loss1:0.2530 loss2:0.9473 | AUC:0.6820 FAR:0.71385
+[2026-05-26 21:06:58,547][main.py][line:74][INFO] [Epoch:78/500]: loss1:0.2545 loss2:0.9448 | AUC:0.6790 FAR:0.69404
+[2026-05-26 21:07:09,321][main.py][line:74][INFO] [Epoch:79/500]: loss1:0.2506 loss2:0.9391 | AUC:0.6902 FAR:0.51444
+[2026-05-26 21:07:19,757][main.py][line:74][INFO] [Epoch:80/500]: loss1:0.2521 loss2:0.9384 | AUC:0.6716 FAR:0.78376
+[2026-05-26 21:07:30,818][main.py][line:74][INFO] [Epoch:81/500]: loss1:0.2490 loss2:0.9438 | AUC:0.6781 FAR:0.77684
+[2026-05-26 21:07:42,295][main.py][line:74][INFO] [Epoch:82/500]: loss1:0.2513 loss2:0.9391 | AUC:0.7018 FAR:0.57209
+[2026-05-26 21:07:53,758][main.py][line:74][INFO] [Epoch:83/500]: loss1:0.2499 loss2:0.9369 | AUC:0.6782 FAR:0.61446
+[2026-05-26 21:08:04,604][main.py][line:74][INFO] [Epoch:84/500]: loss1:0.2567 loss2:0.9404 | AUC:0.7072 FAR:0.29159
+[2026-05-26 21:08:16,558][main.py][line:74][INFO] [Epoch:85/500]: loss1:0.2569 loss2:0.9449 | AUC:0.6894 FAR:0.70805
+[2026-05-26 21:08:27,506][main.py][line:74][INFO] [Epoch:86/500]: loss1:0.2583 loss2:0.9489 | AUC:0.6843 FAR:0.43765
+[2026-05-26 21:08:38,332][main.py][line:74][INFO] [Epoch:87/500]: loss1:0.2526 loss2:0.9539 | AUC:0.6886 FAR:0.55836
+[2026-05-26 21:08:49,310][main.py][line:74][INFO] [Epoch:88/500]: loss1:0.2556 loss2:0.9370 | AUC:0.6864 FAR:0.53392
+[2026-05-26 21:09:00,631][main.py][line:74][INFO] [Epoch:89/500]: loss1:0.2587 loss2:0.9386 | AUC:0.6426 FAR:0.83881
+[2026-05-26 21:09:12,217][main.py][line:74][INFO] [Epoch:90/500]: loss1:0.2545 loss2:0.9461 | AUC:0.7217 FAR:0.40581
+[2026-05-26 21:09:23,123][main.py][line:74][INFO] [Epoch:91/500]: loss1:0.2514 loss2:0.9379 | AUC:0.6986 FAR:0.52065
+[2026-05-26 21:09:33,790][main.py][line:74][INFO] [Epoch:92/500]: loss1:0.2543 loss2:0.9346 | AUC:0.6963 FAR:0.43395
+[2026-05-26 21:09:44,421][main.py][line:74][INFO] [Epoch:93/500]: loss1:0.2552 loss2:0.9433 | AUC:0.6776 FAR:0.80501
+[2026-05-26 21:09:55,157][main.py][line:74][INFO] [Epoch:94/500]: loss1:0.2608 loss2:0.9399 | AUC:0.7221 FAR:0.41011
+[2026-05-26 21:10:05,859][main.py][line:74][INFO] [Epoch:95/500]: loss1:0.2592 loss2:0.9318 | AUC:0.6805 FAR:0.66496
+[2026-05-26 21:10:16,289][main.py][line:74][INFO] [Epoch:96/500]: loss1:0.2795 loss2:0.9485 | AUC:0.6591 FAR:0.75223
+[2026-05-26 21:10:27,419][main.py][line:74][INFO] [Epoch:97/500]: loss1:0.2548 loss2:0.9379 | AUC:0.6722 FAR:0.50131
+[2026-05-26 21:10:38,406][main.py][line:74][INFO] [Epoch:98/500]: loss1:0.2604 loss2:0.9439 | AUC:0.6612 FAR:0.71566
+[2026-05-26 21:10:49,258][main.py][line:74][INFO] [Epoch:99/500]: loss1:0.2518 loss2:0.9369 | AUC:0.6615 FAR:0.42794
+[2026-05-26 21:11:00,236][main.py][line:74][INFO] [Epoch:100/500]: loss1:0.2543 loss2:0.9445 | AUC:0.7158 FAR:0.46501
+[2026-05-26 21:11:10,488][main.py][line:74][INFO] [Epoch:101/500]: loss1:0.2674 loss2:0.9490 | AUC:0.6691 FAR:0.43059
+[2026-05-26 21:11:21,579][main.py][line:74][INFO] [Epoch:102/500]: loss1:0.2637 loss2:0.9456 | AUC:0.6746 FAR:0.48155
+[2026-05-26 21:11:33,290][main.py][line:74][INFO] [Epoch:103/500]: loss1:0.2603 loss2:0.9340 | AUC:0.6619 FAR:0.66628
+[2026-05-26 21:11:44,716][main.py][line:74][INFO] [Epoch:104/500]: loss1:0.2623 loss2:0.9329 | AUC:0.7022 FAR:0.45126
+[2026-05-26 21:11:56,426][main.py][line:74][INFO] [Epoch:105/500]: loss1:0.2717 loss2:0.9189 | AUC:0.7235 FAR:0.23201
+[2026-05-26 21:12:07,860][main.py][line:74][INFO] [Epoch:106/500]: loss1:0.2688 loss2:0.9481 | AUC:0.7061 FAR:0.39576
+[2026-05-26 21:12:18,460][main.py][line:74][INFO] [Epoch:107/500]: loss1:0.2559 loss2:0.9402 | AUC:0.6765 FAR:0.69294
+[2026-05-26 21:12:29,931][main.py][line:74][INFO] [Epoch:108/500]: loss1:0.2483 loss2:0.9352 | AUC:0.6588 FAR:0.87511
+[2026-05-26 21:12:41,026][main.py][line:74][INFO] [Epoch:109/500]: loss1:0.2813 loss2:0.9298 | AUC:0.6784 FAR:0.29312
+[2026-05-26 21:12:52,239][main.py][line:74][INFO] [Epoch:110/500]: loss1:0.2894 loss2:0.9349 | AUC:0.6983 FAR:0.54294
+[2026-05-26 21:13:02,786][main.py][line:74][INFO] [Epoch:111/500]: loss1:0.2552 loss2:0.9300 | AUC:0.6383 FAR:0.78775
+[2026-05-26 21:13:13,399][main.py][line:74][INFO] [Epoch:112/500]: loss1:0.2485 loss2:0.9280 | AUC:0.7043 FAR:0.44219
+[2026-05-26 21:13:23,691][main.py][line:74][INFO] [Epoch:113/500]: loss1:0.2508 loss2:0.9240 | AUC:0.7111 FAR:0.57216
+[2026-05-26 21:13:34,561][main.py][line:74][INFO] [Epoch:114/500]: loss1:0.2588 loss2:0.9220 | AUC:0.7121 FAR:0.16902
+[2026-05-26 21:13:45,032][main.py][line:74][INFO] [Epoch:115/500]: loss1:0.2606 loss2:0.9283 | AUC:0.6700 FAR:0.60240
+[2026-05-26 21:13:56,896][main.py][line:74][INFO] [Epoch:116/500]: loss1:0.2409 loss2:0.9344 | AUC:0.6870 FAR:0.50229
+[2026-05-26 21:14:07,576][main.py][line:74][INFO] [Epoch:117/500]: loss1:0.2390 loss2:0.9134 | AUC:0.7190 FAR:0.35513
+[2026-05-26 21:14:18,655][main.py][line:74][INFO] [Epoch:118/500]: loss1:0.2455 loss2:0.9121 | AUC:0.6775 FAR:0.50773
+[2026-05-26 21:14:29,855][main.py][line:74][INFO] [Epoch:119/500]: loss1:0.2603 loss2:0.9168 | AUC:0.6936 FAR:0.54378
+[2026-05-26 21:14:40,923][main.py][line:74][INFO] [Epoch:120/500]: loss1:0.2556 loss2:0.9262 | AUC:0.6678 FAR:0.42650
+[2026-05-26 21:14:51,947][main.py][line:74][INFO] [Epoch:121/500]: loss1:0.2357 loss2:0.9190 | AUC:0.6607 FAR:0.47000
+[2026-05-26 21:15:02,830][main.py][line:74][INFO] [Epoch:122/500]: loss1:0.2458 loss2:0.9155 | AUC:0.6690 FAR:0.31353
+[2026-05-26 21:15:13,494][main.py][line:74][INFO] [Epoch:123/500]: loss1:0.2433 loss2:0.9065 | AUC:0.6966 FAR:0.42133
+[2026-05-26 21:15:24,589][main.py][line:74][INFO] [Epoch:124/500]: loss1:0.2469 loss2:0.9163 | AUC:0.6863 FAR:0.73543
+[2026-05-26 21:15:36,464][main.py][line:74][INFO] [Epoch:125/500]: loss1:0.2493 loss2:0.9105 | AUC:0.7070 FAR:0.35069
+[2026-05-26 21:15:47,485][main.py][line:74][INFO] [Epoch:126/500]: loss1:0.2509 loss2:0.9064 | AUC:0.6867 FAR:0.58736
+[2026-05-26 21:15:58,343][main.py][line:74][INFO] [Epoch:127/500]: loss1:0.2408 loss2:0.8966 | AUC:0.6417 FAR:0.74159
+[2026-05-26 21:16:10,277][main.py][line:74][INFO] [Epoch:128/500]: loss1:0.2445 loss2:0.9051 | AUC:0.7007 FAR:0.17976
+[2026-05-26 21:16:20,986][main.py][line:74][INFO] [Epoch:129/500]: loss1:0.2380 loss2:0.9020 | AUC:0.6807 FAR:0.54578
+[2026-05-26 21:16:32,139][main.py][line:74][INFO] [Epoch:130/500]: loss1:0.2195 loss2:0.9021 | AUC:0.7231 FAR:0.34540
+[2026-05-26 21:16:42,498][main.py][line:74][INFO] [Epoch:131/500]: loss1:0.2194 loss2:0.8891 | AUC:0.6712 FAR:0.54344
+[2026-05-26 21:16:53,096][main.py][line:74][INFO] [Epoch:132/500]: loss1:0.2304 loss2:0.8861 | AUC:0.6836 FAR:0.46969
+[2026-05-26 21:17:03,292][main.py][line:74][INFO] [Epoch:133/500]: loss1:0.2334 loss2:0.8167 | AUC:0.7149 FAR:0.32188
+[2026-05-26 21:17:13,550][main.py][line:74][INFO] [Epoch:134/500]: loss1:0.2197 loss2:0.8722 | AUC:0.6984 FAR:0.33124
+[2026-05-26 21:17:25,031][main.py][line:74][INFO] [Epoch:135/500]: loss1:0.2288 loss2:0.8764 | AUC:0.7166 FAR:0.23867
+[2026-05-26 21:17:35,744][main.py][line:74][INFO] [Epoch:136/500]: loss1:0.2716 loss2:0.8818 | AUC:0.6880 FAR:0.47405
+[2026-05-26 21:17:46,649][main.py][line:74][INFO] [Epoch:137/500]: loss1:0.2347 loss2:0.8720 | AUC:0.7121 FAR:0.45799
+[2026-05-26 21:17:57,288][main.py][line:74][INFO] [Epoch:138/500]: loss1:0.2178 loss2:0.8802 | AUC:0.7050 FAR:0.32804
+[2026-05-26 21:18:08,295][main.py][line:74][INFO] [Epoch:139/500]: loss1:0.2178 loss2:0.8779 | AUC:0.6955 FAR:0.42295
+[2026-05-26 21:18:19,774][main.py][line:74][INFO] [Epoch:140/500]: loss1:0.2169 loss2:0.8719 | AUC:0.6983 FAR:0.27951
+[2026-05-26 21:18:31,144][main.py][line:74][INFO] [Epoch:141/500]: loss1:0.2096 loss2:0.8643 | AUC:0.7249 FAR:0.39908
+[2026-05-26 21:18:43,066][main.py][line:74][INFO] [Epoch:142/500]: loss1:0.2055 loss2:0.8569 | AUC:0.6898 FAR:0.45847
+[2026-05-26 21:18:56,792][main.py][line:74][INFO] [Epoch:143/500]: loss1:0.1990 loss2:0.8548 | AUC:0.7095 FAR:0.32492
+[2026-05-26 21:19:09,594][main.py][line:74][INFO] [Epoch:144/500]: loss1:0.2004 loss2:0.8597 | AUC:0.6950 FAR:0.49052
+[2026-05-26 21:19:22,778][main.py][line:74][INFO] [Epoch:145/500]: loss1:0.2032 loss2:0.8526 | AUC:0.7003 FAR:0.17723
+[2026-05-26 21:19:35,320][main.py][line:74][INFO] [Epoch:146/500]: loss1:0.2029 loss2:0.8447 | AUC:0.7049 FAR:0.46775
+[2026-05-26 21:19:46,504][main.py][line:74][INFO] [Epoch:147/500]: loss1:0.1944 loss2:0.8372 | AUC:0.7347 FAR:0.19280
+[2026-05-26 21:19:58,428][main.py][line:74][INFO] [Epoch:148/500]: loss1:0.1921 loss2:0.8367 | AUC:0.7016 FAR:0.36272
+[2026-05-26 21:20:09,251][main.py][line:74][INFO] [Epoch:149/500]: loss1:0.1888 loss2:0.8327 | AUC:0.7088 FAR:0.25462
+[2026-05-26 21:20:20,194][main.py][line:74][INFO] [Epoch:150/500]: loss1:0.1922 loss2:0.8274 | AUC:0.7049 FAR:0.21404
+[2026-05-26 21:20:31,189][main.py][line:74][INFO] [Epoch:151/500]: loss1:0.1884 loss2:0.8233 | AUC:0.7003 FAR:0.31563
+[2026-05-26 21:20:42,478][main.py][line:74][INFO] [Epoch:152/500]: loss1:0.1966 loss2:0.8242 | AUC:0.6903 FAR:0.32924
+[2026-05-26 21:20:53,444][main.py][line:74][INFO] [Epoch:153/500]: loss1:0.1916 loss2:0.8157 | AUC:0.6988 FAR:0.39151
+[2026-05-26 21:21:03,790][main.py][line:74][INFO] [Epoch:154/500]: loss1:0.1829 loss2:0.8204 | AUC:0.7052 FAR:0.24414
+[2026-05-26 21:21:14,764][main.py][line:74][INFO] [Epoch:155/500]: loss1:0.1807 loss2:0.8085 | AUC:0.7093 FAR:0.23187
+[2026-05-26 21:21:25,872][main.py][line:74][INFO] [Epoch:156/500]: loss1:0.1758 loss2:0.8020 | AUC:0.6986 FAR:0.34824
+[2026-05-26 21:21:37,096][main.py][line:74][INFO] [Epoch:157/500]: loss1:0.1741 loss2:0.8127 | AUC:0.6768 FAR:0.38967
+[2026-05-26 21:21:48,097][main.py][line:74][INFO] [Epoch:158/500]: loss1:0.1722 loss2:0.7472 | AUC:0.6838 FAR:0.41383
+[2026-05-26 21:21:59,006][main.py][line:74][INFO] [Epoch:159/500]: loss1:0.1781 loss2:0.7314 | AUC:0.7086 FAR:0.18201
+[2026-05-26 21:22:09,786][main.py][line:74][INFO] [Epoch:160/500]: loss1:0.1730 loss2:0.7969 | AUC:0.6961 FAR:0.22901
+[2026-05-26 21:22:21,007][main.py][line:74][INFO] [Epoch:161/500]: loss1:0.1758 loss2:0.7341 | AUC:0.6938 FAR:0.36712
+[2026-05-26 21:22:31,726][main.py][line:74][INFO] [Epoch:162/500]: loss1:0.1714 loss2:0.7351 | AUC:0.7158 FAR:0.22220
+[2026-05-26 21:22:42,685][main.py][line:74][INFO] [Epoch:163/500]: loss1:0.1690 loss2:0.7880 | AUC:0.7093 FAR:0.21877
+[2026-05-26 21:22:53,585][main.py][line:74][INFO] [Epoch:164/500]: loss1:0.1673 loss2:0.7859 | AUC:0.7031 FAR:0.24247
+[2026-05-26 21:23:03,983][main.py][line:74][INFO] [Epoch:165/500]: loss1:0.1632 loss2:0.7891 | AUC:0.6976 FAR:0.26011
+[2026-05-26 21:23:15,203][main.py][line:74][INFO] [Epoch:166/500]: loss1:0.1609 loss2:0.7695 | AUC:0.7024 FAR:0.23466
+[2026-05-26 21:23:27,186][main.py][line:74][INFO] [Epoch:167/500]: loss1:0.1629 loss2:0.7199 | AUC:0.7030 FAR:0.21922
+[2026-05-26 21:23:38,126][main.py][line:74][INFO] [Epoch:168/500]: loss1:0.1570 loss2:0.7044 | AUC:0.6983 FAR:0.25374
+[2026-05-26 21:23:48,720][main.py][line:74][INFO] [Epoch:169/500]: loss1:0.1599 loss2:0.7681 | AUC:0.7015 FAR:0.25455
+[2026-05-26 21:24:01,956][main.py][line:74][INFO] [Epoch:170/500]: loss1:0.1593 loss2:0.7712 | AUC:0.7029 FAR:0.21266
+[2026-05-26 21:24:13,521][main.py][line:74][INFO] [Epoch:171/500]: loss1:0.1559 loss2:0.7645 | AUC:0.7032 FAR:0.26056
+[2026-05-26 21:24:26,657][main.py][line:74][INFO] [Epoch:172/500]: loss1:0.1548 loss2:0.7664 | AUC:0.7036 FAR:0.24412
+[2026-05-26 21:24:40,028][main.py][line:74][INFO] [Epoch:173/500]: loss1:0.1511 loss2:0.7706 | AUC:0.7008 FAR:0.25949
+[2026-05-26 21:24:52,940][main.py][line:74][INFO] [Epoch:174/500]: loss1:0.1529 loss2:0.7077 | AUC:0.7067 FAR:0.22996
+[2026-05-26 21:25:06,254][main.py][line:74][INFO] [Epoch:175/500]: loss1:0.1523 loss2:0.7611 | AUC:0.7044 FAR:0.24075
+[2026-05-26 21:25:19,681][main.py][line:74][INFO] [Epoch:176/500]: loss1:0.1522 loss2:0.7060 | AUC:0.7043 FAR:0.24722
+[2026-05-26 21:25:32,280][main.py][line:74][INFO] [Epoch:177/500]: loss1:0.1523 loss2:0.7618 | AUC:0.7044 FAR:0.23612
+[2026-05-26 21:25:44,489][main.py][line:74][INFO] [Epoch:178/500]: loss1:0.1537 loss2:0.7600 | AUC:0.7038 FAR:0.24042
+[2026-05-26 21:25:57,285][main.py][line:74][INFO] [Epoch:179/500]: loss1:0.1524 loss2:0.7655 | AUC:0.7043 FAR:0.23679
+[2026-05-26 21:26:10,866][main.py][line:74][INFO] [Epoch:180/500]: loss1:0.1514 loss2:0.7666 | AUC:0.7043 FAR:0.23681
+[2026-05-26 21:26:23,514][main.py][line:74][INFO] [Epoch:181/500]: loss1:0.1518 loss2:0.7627 | AUC:0.7043 FAR:0.23681
+[2026-05-26 21:26:35,899][main.py][line:74][INFO] [Epoch:182/500]: loss1:0.1539 loss2:0.7678 | AUC:0.7042 FAR:0.23741
+[2026-05-26 21:26:49,793][main.py][line:74][INFO] [Epoch:183/500]: loss1:0.1519 loss2:0.7566 | AUC:0.7039 FAR:0.23736
+[2026-05-26 21:27:03,531][main.py][line:74][INFO] [Epoch:184/500]: loss1:0.1514 loss2:0.7560 | AUC:0.7038 FAR:0.23526
+[2026-05-26 21:27:16,568][main.py][line:74][INFO] [Epoch:185/500]: loss1:0.1519 loss2:0.7624 | AUC:0.7039 FAR:0.22893
+[2026-05-26 21:27:29,303][main.py][line:74][INFO] [Epoch:186/500]: loss1:0.1515 loss2:0.7630 | AUC:0.7039 FAR:0.23209
+[2026-05-26 21:27:43,132][main.py][line:74][INFO] [Epoch:187/500]: loss1:0.1510 loss2:0.7565 | AUC:0.7032 FAR:0.24507
+[2026-05-26 21:27:56,417][main.py][line:74][INFO] [Epoch:188/500]: loss1:0.1517 loss2:0.7673 | AUC:0.7038 FAR:0.22963
+[2026-05-26 21:28:10,487][main.py][line:74][INFO] [Epoch:189/500]: loss1:0.1527 loss2:0.6419 | AUC:0.7047 FAR:0.22724
+[2026-05-26 21:28:24,585][main.py][line:74][INFO] [Epoch:190/500]: loss1:0.1583 loss2:0.7643 | AUC:0.6996 FAR:0.27730
+[2026-05-26 21:28:37,984][main.py][line:74][INFO] [Epoch:191/500]: loss1:0.1518 loss2:0.7677 | AUC:0.7055 FAR:0.22540
+[2026-05-26 21:28:51,430][main.py][line:74][INFO] [Epoch:192/500]: loss1:0.1555 loss2:0.7603 | AUC:0.7075 FAR:0.22979
+[2026-05-26 21:29:04,952][main.py][line:74][INFO] [Epoch:193/500]: loss1:0.1538 loss2:0.7074 | AUC:0.7034 FAR:0.22593
+[2026-05-26 21:29:18,130][main.py][line:74][INFO] [Epoch:194/500]: loss1:0.1542 loss2:0.6929 | AUC:0.7061 FAR:0.21313
+[2026-05-26 21:29:31,695][main.py][line:74][INFO] [Epoch:195/500]: loss1:0.1543 loss2:0.7631 | AUC:0.7066 FAR:0.19943
+[2026-05-26 21:29:45,812][main.py][line:74][INFO] [Epoch:196/500]: loss1:0.1549 loss2:0.7132 | AUC:0.7090 FAR:0.18516
+[2026-05-26 21:29:58,962][main.py][line:74][INFO] [Epoch:197/500]: loss1:0.1568 loss2:0.7752 | AUC:0.7118 FAR:0.19891
+[2026-05-26 21:30:12,227][main.py][line:74][INFO] [Epoch:198/500]: loss1:0.1557 loss2:0.7712 | AUC:0.7015 FAR:0.29326
+[2026-05-26 21:30:25,710][main.py][line:74][INFO] [Epoch:199/500]: loss1:0.1550 loss2:0.7626 | AUC:0.7045 FAR:0.21010
+[2026-05-26 21:30:38,901][main.py][line:74][INFO] [Epoch:200/500]: loss1:0.1526 loss2:0.7660 | AUC:0.7057 FAR:0.22063
+[2026-05-26 21:30:52,290][main.py][line:74][INFO] [Epoch:201/500]: loss1:0.1552 loss2:0.7643 | AUC:0.6939 FAR:0.24901
+[2026-05-26 21:31:05,663][main.py][line:74][INFO] [Epoch:202/500]: loss1:0.1553 loss2:0.7084 | AUC:0.6967 FAR:0.24194
+[2026-05-26 21:31:19,272][main.py][line:74][INFO] [Epoch:203/500]: loss1:0.1599 loss2:0.7716 | AUC:0.7092 FAR:0.23550
+[2026-05-26 21:31:32,372][main.py][line:74][INFO] [Epoch:204/500]: loss1:0.1616 loss2:0.7730 | AUC:0.7085 FAR:0.22643
+[2026-05-26 21:31:46,407][main.py][line:74][INFO] [Epoch:205/500]: loss1:0.1663 loss2:0.7132 | AUC:0.7087 FAR:0.25631
+[2026-05-26 21:31:59,793][main.py][line:74][INFO] [Epoch:206/500]: loss1:0.1688 loss2:0.7177 | AUC:0.7102 FAR:0.19690
+[2026-05-26 21:32:13,044][main.py][line:74][INFO] [Epoch:207/500]: loss1:0.1702 loss2:0.7928 | AUC:0.6909 FAR:0.34291
+[2026-05-26 21:32:26,080][main.py][line:74][INFO] [Epoch:208/500]: loss1:0.1714 loss2:0.6094 | AUC:0.6821 FAR:0.27443
+[2026-05-26 21:32:39,470][main.py][line:74][INFO] [Epoch:209/500]: loss1:0.1690 loss2:0.7730 | AUC:0.7093 FAR:0.22483
+[2026-05-26 21:32:52,177][main.py][line:74][INFO] [Epoch:210/500]: loss1:0.1687 loss2:0.7810 | AUC:0.6878 FAR:0.27302
+[2026-05-26 21:33:04,803][main.py][line:74][INFO] [Epoch:211/500]: loss1:0.1799 loss2:0.4443 | AUC:0.6749 FAR:0.38421
+[2026-05-26 21:33:17,881][main.py][line:74][INFO] [Epoch:212/500]: loss1:0.1896 loss2:0.2165 | AUC:0.7175 FAR:0.28434
+[2026-05-26 21:33:31,748][main.py][line:74][INFO] [Epoch:213/500]: loss1:0.1688 loss2:0.7544 | AUC:0.7014 FAR:0.16248
+[2026-05-26 21:33:45,447][main.py][line:74][INFO] [Epoch:214/500]: loss1:0.1744 loss2:0.6715 | AUC:0.7072 FAR:0.21719
+[2026-05-26 21:33:58,892][main.py][line:74][INFO] [Epoch:215/500]: loss1:0.1748 loss2:0.7931 | AUC:0.6884 FAR:0.26865
+[2026-05-26 21:34:11,614][main.py][line:74][INFO] [Epoch:216/500]: loss1:0.1811 loss2:0.7952 | AUC:0.6675 FAR:0.51351
+[2026-05-26 21:34:24,719][main.py][line:74][INFO] [Epoch:217/500]: loss1:0.1891 loss2:0.7966 | AUC:0.7186 FAR:0.21246
+[2026-05-26 21:34:38,984][main.py][line:74][INFO] [Epoch:218/500]: loss1:0.1916 loss2:0.6657 | AUC:0.7020 FAR:0.32893
+[2026-05-26 21:34:51,830][main.py][line:74][INFO] [Epoch:219/500]: loss1:0.1809 loss2:0.7238 | AUC:0.6961 FAR:0.22383
+[2026-05-26 21:35:05,219][main.py][line:74][INFO] [Epoch:220/500]: loss1:0.1760 loss2:0.7985 | AUC:0.6685 FAR:0.44918
+[2026-05-26 21:35:17,853][main.py][line:74][INFO] [Epoch:221/500]: loss1:0.1858 loss2:0.6813 | AUC:0.6214 FAR:0.46119
+[2026-05-26 21:35:32,428][main.py][line:74][INFO] [Epoch:222/500]: loss1:0.1988 loss2:0.7516 | AUC:0.6633 FAR:0.26111
+[2026-05-26 21:35:45,450][main.py][line:74][INFO] [Epoch:223/500]: loss1:0.1901 loss2:0.7422 | AUC:0.7034 FAR:0.34186
+[2026-05-26 21:35:58,490][main.py][line:74][INFO] [Epoch:224/500]: loss1:0.1767 loss2:0.7983 | AUC:0.6830 FAR:0.39588
+[2026-05-26 21:36:11,225][main.py][line:74][INFO] [Epoch:225/500]: loss1:0.1782 loss2:0.8107 | AUC:0.6898 FAR:0.43364
+[2026-05-26 21:36:23,868][main.py][line:74][INFO] [Epoch:226/500]: loss1:0.1884 loss2:0.7433 | AUC:0.6791 FAR:0.41961
+[2026-05-26 21:36:37,425][main.py][line:74][INFO] [Epoch:227/500]: loss1:0.2032 loss2:0.7384 | AUC:0.6833 FAR:0.28250
+[2026-05-26 21:36:51,743][main.py][line:74][INFO] [Epoch:228/500]: loss1:0.1851 loss2:0.7949 | AUC:0.6897 FAR:0.43811
+[2026-05-26 21:37:05,827][main.py][line:74][INFO] [Epoch:229/500]: loss1:0.1877 loss2:0.7311 | AUC:0.7018 FAR:0.11625
+[2026-05-26 21:37:19,055][main.py][line:74][INFO] [Epoch:230/500]: loss1:0.2203 loss2:0.8053 | AUC:0.6660 FAR:0.24996
+[2026-05-26 21:37:31,045][main.py][line:74][INFO] [Epoch:231/500]: loss1:0.1960 loss2:0.8014 | AUC:0.6936 FAR:0.30463
+[2026-05-26 21:37:43,362][main.py][line:74][INFO] [Epoch:232/500]: loss1:0.2216 loss2:0.8141 | AUC:0.6876 FAR:0.45076
+[2026-05-26 21:37:56,356][main.py][line:74][INFO] [Epoch:233/500]: loss1:0.1984 loss2:0.7974 | AUC:0.6543 FAR:0.32611
+[2026-05-26 21:38:09,826][main.py][line:74][INFO] [Epoch:234/500]: loss1:0.1954 loss2:0.7979 | AUC:0.7176 FAR:0.17955
+[2026-05-26 21:38:22,994][main.py][line:74][INFO] [Epoch:235/500]: loss1:0.1731 loss2:0.8049 | AUC:0.6399 FAR:0.40922
+[2026-05-26 21:38:35,338][main.py][line:74][INFO] [Epoch:236/500]: loss1:0.2023 loss2:0.2521 | AUC:0.6472 FAR:0.48152
+[2026-05-26 21:38:48,469][main.py][line:74][INFO] [Epoch:237/500]: loss1:0.1779 loss2:0.7933 | AUC:0.6949 FAR:0.24400
+[2026-05-26 21:39:01,439][main.py][line:74][INFO] [Epoch:238/500]: loss1:0.1739 loss2:0.8204 | AUC:0.6723 FAR:0.18480
+[2026-05-26 21:39:15,567][main.py][line:74][INFO] [Epoch:239/500]: loss1:0.1828 loss2:0.8012 | AUC:0.6594 FAR:0.41044
+[2026-05-26 21:39:28,641][main.py][line:74][INFO] [Epoch:240/500]: loss1:0.1755 loss2:0.7984 | AUC:0.6862 FAR:0.27913
+[2026-05-26 21:39:41,869][main.py][line:74][INFO] [Epoch:241/500]: loss1:0.1789 loss2:0.8074 | AUC:0.6478 FAR:0.38791
+[2026-05-26 21:39:55,338][main.py][line:74][INFO] [Epoch:242/500]: loss1:0.1815 loss2:0.8038 | AUC:0.6871 FAR:0.18337
+[2026-05-26 21:40:08,387][main.py][line:74][INFO] [Epoch:243/500]: loss1:0.1996 loss2:0.8001 | AUC:0.6976 FAR:0.17661
+[2026-05-26 21:40:21,636][main.py][line:74][INFO] [Epoch:244/500]: loss1:0.1868 loss2:0.8001 | AUC:0.6996 FAR:0.15570
+[2026-05-26 21:40:35,232][main.py][line:74][INFO] [Epoch:245/500]: loss1:0.1740 loss2:0.7932 | AUC:0.7014 FAR:0.35630
+[2026-05-26 21:40:49,666][main.py][line:74][INFO] [Epoch:246/500]: loss1:0.1796 loss2:0.7915 | AUC:0.6751 FAR:0.19079
+[2026-05-26 21:41:02,175][main.py][line:74][INFO] [Epoch:247/500]: loss1:0.1851 loss2:0.7921 | AUC:0.7005 FAR:0.24505
+[2026-05-26 21:41:15,043][main.py][line:74][INFO] [Epoch:248/500]: loss1:0.1801 loss2:0.7851 | AUC:0.6906 FAR:0.37237
+[2026-05-26 21:41:28,036][main.py][line:74][INFO] [Epoch:249/500]: loss1:0.1629 loss2:0.7133 | AUC:0.7131 FAR:0.16506
+[2026-05-26 21:41:38,653][main.py][line:74][INFO] [Epoch:250/500]: loss1:0.1627 loss2:0.7854 | AUC:0.7163 FAR:0.24555
+[2026-05-26 21:41:50,274][main.py][line:74][INFO] [Epoch:251/500]: loss1:0.1744 loss2:0.7186 | AUC:0.6819 FAR:0.46355
+[2026-05-26 21:42:01,148][main.py][line:74][INFO] [Epoch:252/500]: loss1:0.1815 loss2:0.7095 | AUC:0.6978 FAR:0.37440
+[2026-05-26 21:42:12,545][main.py][line:74][INFO] [Epoch:253/500]: loss1:0.1643 loss2:0.7596 | AUC:0.6367 FAR:0.32334
+[2026-05-26 21:42:25,310][main.py][line:74][INFO] [Epoch:254/500]: loss1:0.1456 loss2:0.7041 | AUC:0.6852 FAR:0.20399
+[2026-05-26 21:42:39,148][main.py][line:74][INFO] [Epoch:255/500]: loss1:0.1579 loss2:0.6332 | AUC:0.6677 FAR:0.14389
+[2026-05-26 21:42:51,981][main.py][line:74][INFO] [Epoch:256/500]: loss1:0.1828 loss2:0.7599 | AUC:0.6172 FAR:0.36514
+[2026-05-26 21:43:05,766][main.py][line:74][INFO] [Epoch:257/500]: loss1:0.1731 loss2:0.5874 | AUC:0.6808 FAR:0.37070
+[2026-05-26 21:43:18,534][main.py][line:74][INFO] [Epoch:258/500]: loss1:0.1642 loss2:0.6890 | AUC:0.6650 FAR:0.31983
+[2026-05-26 21:43:31,237][main.py][line:74][INFO] [Epoch:259/500]: loss1:0.1562 loss2:0.6959 | AUC:0.6817 FAR:0.14329
+[2026-05-26 21:43:41,781][main.py][line:74][INFO] [Epoch:260/500]: loss1:0.1600 loss2:0.6839 | AUC:0.6496 FAR:0.41970
+[2026-05-26 21:43:53,099][main.py][line:74][INFO] [Epoch:261/500]: loss1:0.1516 loss2:0.6766 | AUC:0.6606 FAR:0.29620
+[2026-05-26 21:44:04,524][main.py][line:74][INFO] [Epoch:262/500]: loss1:0.1388 loss2:0.5530 | AUC:0.6591 FAR:0.37242
+[2026-05-26 21:44:15,822][main.py][line:74][INFO] [Epoch:263/500]: loss1:0.1511 loss2:0.6202 | AUC:0.6733 FAR:0.38161
+[2026-05-26 21:44:28,564][main.py][line:74][INFO] [Epoch:264/500]: loss1:0.1513 loss2:0.6726 | AUC:0.6806 FAR:0.17401
+[2026-05-26 21:44:41,547][main.py][line:74][INFO] [Epoch:265/500]: loss1:0.1420 loss2:0.6594 | AUC:0.6397 FAR:0.43653
+[2026-05-26 21:44:52,983][main.py][line:74][INFO] [Epoch:266/500]: loss1:0.1449 loss2:0.7193 | AUC:0.6520 FAR:0.31028
+[2026-05-26 21:45:04,508][main.py][line:74][INFO] [Epoch:267/500]: loss1:0.1424 loss2:0.6025 | AUC:0.6345 FAR:0.40044
+[2026-05-26 21:45:15,819][main.py][line:74][INFO] [Epoch:268/500]: loss1:0.1350 loss2:0.5375 | AUC:0.6702 FAR:0.26832
+[2026-05-26 21:45:27,247][main.py][line:74][INFO] [Epoch:269/500]: loss1:0.1420 loss2:0.6432 | AUC:0.6798 FAR:0.26269
+[2026-05-26 21:45:38,266][main.py][line:74][INFO] [Epoch:270/500]: loss1:0.1346 loss2:0.6044 | AUC:0.6776 FAR:0.19666
+[2026-05-26 21:45:51,640][main.py][line:74][INFO] [Epoch:271/500]: loss1:0.1249 loss2:0.6378 | AUC:0.6411 FAR:0.43500
+[2026-05-26 21:46:04,533][main.py][line:74][INFO] [Epoch:272/500]: loss1:0.1163 loss2:0.5170 | AUC:0.6491 FAR:0.33883
+[2026-05-26 21:46:17,470][main.py][line:74][INFO] [Epoch:273/500]: loss1:0.1227 loss2:0.4242 | AUC:0.6710 FAR:0.24077
+[2026-05-26 21:46:30,108][main.py][line:74][INFO] [Epoch:274/500]: loss1:0.1325 loss2:0.6017 | AUC:0.6681 FAR:0.16776
+[2026-05-26 21:46:43,009][main.py][line:74][INFO] [Epoch:275/500]: loss1:0.1228 loss2:0.5741 | AUC:0.6793 FAR:0.16780
+[2026-05-26 21:46:55,984][main.py][line:74][INFO] [Epoch:276/500]: loss1:0.1200 loss2:0.6094 | AUC:0.6817 FAR:0.19860
+[2026-05-26 21:47:08,969][main.py][line:74][INFO] [Epoch:277/500]: loss1:0.1104 loss2:0.4333 | AUC:0.6508 FAR:0.23139
+[2026-05-26 21:47:22,100][main.py][line:74][INFO] [Epoch:278/500]: loss1:0.1085 loss2:0.3631 | AUC:0.6586 FAR:0.37425
+[2026-05-26 21:47:35,353][main.py][line:74][INFO] [Epoch:279/500]: loss1:0.1060 loss2:0.5642 | AUC:0.6598 FAR:0.27928
+[2026-05-26 21:47:47,912][main.py][line:74][INFO] [Epoch:280/500]: loss1:0.1081 loss2:0.5089 | AUC:0.6631 FAR:0.24607
+[2026-05-26 21:48:01,341][main.py][line:74][INFO] [Epoch:281/500]: loss1:0.1008 loss2:0.5527 | AUC:0.6651 FAR:0.32876
+[2026-05-26 21:48:14,616][main.py][line:74][INFO] [Epoch:282/500]: loss1:0.0994 loss2:0.3295 | AUC:0.6652 FAR:0.31563
+[2026-05-26 21:48:27,861][main.py][line:74][INFO] [Epoch:283/500]: loss1:0.1039 loss2:0.3098 | AUC:0.6692 FAR:0.29157
+[2026-05-26 21:48:40,861][main.py][line:74][INFO] [Epoch:284/500]: loss1:0.0976 loss2:0.4025 | AUC:0.6570 FAR:0.30866
+[2026-05-26 21:48:53,362][main.py][line:74][INFO] [Epoch:285/500]: loss1:0.0985 loss2:0.3528 | AUC:0.6573 FAR:0.36943
+[2026-05-26 21:49:06,377][main.py][line:74][INFO] [Epoch:286/500]: loss1:0.0978 loss2:0.4454 | AUC:0.6527 FAR:0.35418
+[2026-05-26 21:49:19,680][main.py][line:74][INFO] [Epoch:287/500]: loss1:0.0982 loss2:0.4081 | AUC:0.6570 FAR:0.29823
+[2026-05-26 21:49:32,962][main.py][line:74][INFO] [Epoch:288/500]: loss1:0.0951 loss2:0.4966 | AUC:0.6621 FAR:0.22476
+[2026-05-26 21:49:46,190][main.py][line:74][INFO] [Epoch:289/500]: loss1:0.1004 loss2:0.3364 | AUC:0.6498 FAR:0.37180
+[2026-05-26 21:49:58,976][main.py][line:74][INFO] [Epoch:290/500]: loss1:0.0943 loss2:0.4834 | AUC:0.6578 FAR:0.26209
+[2026-05-26 21:50:12,204][main.py][line:74][INFO] [Epoch:291/500]: loss1:0.0926 loss2:0.2997 | AUC:0.6579 FAR:0.32367
+[2026-05-26 21:50:25,363][main.py][line:74][INFO] [Epoch:292/500]: loss1:0.0908 loss2:0.3538 | AUC:0.6521 FAR:0.33640
+[2026-05-26 21:50:37,832][main.py][line:74][INFO] [Epoch:293/500]: loss1:0.0909 loss2:0.4883 | AUC:0.6564 FAR:0.29947
+[2026-05-26 21:50:50,924][main.py][line:74][INFO] [Epoch:294/500]: loss1:0.0922 loss2:0.3395 | AUC:0.6538 FAR:0.33341
+[2026-05-26 21:51:03,520][main.py][line:74][INFO] [Epoch:295/500]: loss1:0.0888 loss2:0.3243 | AUC:0.6537 FAR:0.34446
+[2026-05-26 21:51:16,691][main.py][line:74][INFO] [Epoch:296/500]: loss1:0.0908 loss2:0.5255 | AUC:0.6577 FAR:0.31138
+[2026-05-26 21:51:29,681][main.py][line:74][INFO] [Epoch:297/500]: loss1:0.0906 loss2:0.2873 | AUC:0.6576 FAR:0.31176
+[2026-05-26 21:51:43,421][main.py][line:74][INFO] [Epoch:298/500]: loss1:0.0889 loss2:0.4286 | AUC:0.6570 FAR:0.31721
+[2026-05-26 21:51:55,478][main.py][line:74][INFO] [Epoch:299/500]: loss1:0.0872 loss2:0.3902 | AUC:0.6565 FAR:0.31928
+[2026-05-26 21:52:08,182][main.py][line:74][INFO] [Epoch:300/500]: loss1:0.0898 loss2:0.2930 | AUC:0.6565 FAR:0.31981
+[2026-05-26 21:52:20,093][main.py][line:74][INFO] [Epoch:301/500]: loss1:0.0882 loss2:0.3321 | AUC:0.6565 FAR:0.31981
+[2026-05-26 21:52:31,538][main.py][line:74][INFO] [Epoch:302/500]: loss1:0.0889 loss2:0.4465 | AUC:0.6564 FAR:0.31981
+[2026-05-26 21:52:43,980][main.py][line:74][INFO] [Epoch:303/500]: loss1:0.0896 loss2:0.3778 | AUC:0.6563 FAR:0.31888
+[2026-05-26 21:52:56,532][main.py][line:74][INFO] [Epoch:304/500]: loss1:0.0889 loss2:0.5803 | AUC:0.6567 FAR:0.31121
+[2026-05-26 21:53:09,097][main.py][line:74][INFO] [Epoch:305/500]: loss1:0.0896 loss2:0.4387 | AUC:0.6554 FAR:0.32064
+[2026-05-26 21:53:21,119][main.py][line:74][INFO] [Epoch:306/500]: loss1:0.0891 loss2:0.3504 | AUC:0.6553 FAR:0.33052
+[2026-05-26 21:53:33,348][main.py][line:74][INFO] [Epoch:307/500]: loss1:0.0903 loss2:0.3420 | AUC:0.6589 FAR:0.31327
+[2026-05-26 21:53:45,351][main.py][line:74][INFO] [Epoch:308/500]: loss1:0.0920 loss2:0.3950 | AUC:0.6593 FAR:0.30981
+[2026-05-26 21:53:57,824][main.py][line:74][INFO] [Epoch:309/500]: loss1:0.0896 loss2:0.3906 | AUC:0.6579 FAR:0.29868
+[2026-05-26 21:54:09,992][main.py][line:74][INFO] [Epoch:310/500]: loss1:0.0881 loss2:0.4815 | AUC:0.6546 FAR:0.29823
+[2026-05-26 21:54:22,457][main.py][line:74][INFO] [Epoch:311/500]: loss1:0.0886 loss2:0.3356 | AUC:0.6573 FAR:0.30226
+[2026-05-26 21:54:34,417][main.py][line:74][INFO] [Epoch:312/500]: loss1:0.0916 loss2:0.3790 | AUC:0.6501 FAR:0.36764
+[2026-05-26 21:54:46,789][main.py][line:74][INFO] [Epoch:313/500]: loss1:0.0928 loss2:0.4004 | AUC:0.6588 FAR:0.29030
+[2026-05-26 21:54:58,835][main.py][line:74][INFO] [Epoch:314/500]: loss1:0.0930 loss2:0.2789 | AUC:0.6622 FAR:0.25822
+[2026-05-26 21:55:11,686][main.py][line:74][INFO] [Epoch:315/500]: loss1:0.0903 loss2:0.4386 | AUC:0.6501 FAR:0.34666
+[2026-05-26 21:55:23,979][main.py][line:74][INFO] [Epoch:316/500]: loss1:0.0935 loss2:0.2427 | AUC:0.6600 FAR:0.31749
+[2026-05-26 21:55:36,977][main.py][line:74][INFO] [Epoch:317/500]: loss1:0.0913 loss2:0.3933 | AUC:0.6554 FAR:0.25462
+[2026-05-26 21:55:48,962][main.py][line:74][INFO] [Epoch:318/500]: loss1:0.0914 loss2:0.2884 | AUC:0.6569 FAR:0.38688
+[2026-05-26 21:56:00,904][main.py][line:74][INFO] [Epoch:319/500]: loss1:0.0980 loss2:0.4367 | AUC:0.6309 FAR:0.41545
+[2026-05-26 21:56:12,748][main.py][line:74][INFO] [Epoch:320/500]: loss1:0.1008 loss2:0.3129 | AUC:0.6556 FAR:0.35950
+[2026-05-26 21:56:24,797][main.py][line:74][INFO] [Epoch:321/500]: loss1:0.0921 loss2:0.2564 | AUC:0.6497 FAR:0.35134
+[2026-05-26 21:56:35,714][main.py][line:74][INFO] [Epoch:322/500]: loss1:0.0932 loss2:0.3696 | AUC:0.6640 FAR:0.23688
+[2026-05-26 21:56:46,469][main.py][line:74][INFO] [Epoch:323/500]: loss1:0.0979 loss2:0.2593 | AUC:0.6452 FAR:0.31723
+[2026-05-26 21:56:57,476][main.py][line:74][INFO] [Epoch:324/500]: loss1:0.1009 loss2:0.2912 | AUC:0.6579 FAR:0.36645
+[2026-05-26 21:57:08,829][main.py][line:74][INFO] [Epoch:325/500]: loss1:0.0980 loss2:0.4148 | AUC:0.6483 FAR:0.35957
+[2026-05-26 21:57:19,469][main.py][line:74][INFO] [Epoch:326/500]: loss1:0.1064 loss2:0.0966 | AUC:0.6722 FAR:0.15981
+[2026-05-26 21:57:31,583][main.py][line:74][INFO] [Epoch:327/500]: loss1:0.1048 loss2:0.2498 | AUC:0.6388 FAR:0.40087
+[2026-05-26 21:57:42,652][main.py][line:74][INFO] [Epoch:328/500]: loss1:0.1071 loss2:0.3772 | AUC:0.6639 FAR:0.36941
+[2026-05-26 21:57:54,572][main.py][line:74][INFO] [Epoch:329/500]: loss1:0.1194 loss2:0.3732 | AUC:0.6456 FAR:0.31892
+[2026-05-26 21:58:05,401][main.py][line:74][INFO] [Epoch:330/500]: loss1:0.1324 loss2:0.3675 | AUC:0.6273 FAR:0.41942
+[2026-05-26 21:58:16,086][main.py][line:74][INFO] [Epoch:331/500]: loss1:0.1188 loss2:0.3268 | AUC:0.6339 FAR:0.42223
+[2026-05-26 21:58:26,864][main.py][line:74][INFO] [Epoch:332/500]: loss1:0.1218 loss2:0.2871 | AUC:0.6336 FAR:0.19774
+[2026-05-26 21:58:37,595][main.py][line:74][INFO] [Epoch:333/500]: loss1:0.1153 loss2:0.4450 | AUC:0.6186 FAR:0.42932
+[2026-05-26 21:58:49,565][main.py][line:74][INFO] [Epoch:334/500]: loss1:0.1197 loss2:0.2284 | AUC:0.6541 FAR:0.39419
+[2026-05-26 21:59:01,200][main.py][line:74][INFO] [Epoch:335/500]: loss1:0.1424 loss2:0.1625 | AUC:0.6800 FAR:0.14351
+[2026-05-26 21:59:12,274][main.py][line:74][INFO] [Epoch:336/500]: loss1:0.1436 loss2:0.4768 | AUC:0.6415 FAR:0.34781
+[2026-05-26 21:59:24,136][main.py][line:74][INFO] [Epoch:337/500]: loss1:0.1423 loss2:0.5698 | AUC:0.6494 FAR:0.34902
+[2026-05-26 21:59:34,872][main.py][line:74][INFO] [Epoch:338/500]: loss1:0.1485 loss2:0.5029 | AUC:0.5646 FAR:0.63231
+[2026-05-26 21:59:45,874][main.py][line:74][INFO] [Epoch:339/500]: loss1:0.1746 loss2:0.6249 | AUC:0.6802 FAR:0.41273
+[2026-05-26 21:59:57,626][main.py][line:74][INFO] [Epoch:340/500]: loss1:0.1495 loss2:0.2794 | AUC:0.6639 FAR:0.18186
+[2026-05-26 22:00:08,349][main.py][line:74][INFO] [Epoch:341/500]: loss1:0.1446 loss2:0.0000 | AUC:0.6661 FAR:0.43667
+[2026-05-26 22:00:19,614][main.py][line:74][INFO] [Epoch:342/500]: loss1:0.1636 loss2:0.0000 | AUC:0.6702 FAR:0.45066
+[2026-05-26 22:00:30,475][main.py][line:74][INFO] [Epoch:343/500]: loss1:0.1601 loss2:0.0000 | AUC:0.6833 FAR:0.31771
+[2026-05-26 22:00:41,128][main.py][line:74][INFO] [Epoch:344/500]: loss1:0.1473 loss2:0.2175 | AUC:0.6919 FAR:0.13613
+[2026-05-26 22:00:51,707][main.py][line:74][INFO] [Epoch:345/500]: loss1:0.1455 loss2:0.1843 | AUC:0.6258 FAR:0.46011
+[2026-05-26 22:01:02,517][main.py][line:74][INFO] [Epoch:346/500]: loss1:0.1826 loss2:0.3084 | AUC:0.6518 FAR:0.11730
+[2026-05-26 22:01:13,620][main.py][line:74][INFO] [Epoch:347/500]: loss1:0.1723 loss2:0.6028 | AUC:0.6657 FAR:0.39454
+[2026-05-26 22:01:25,054][main.py][line:74][INFO] [Epoch:348/500]: loss1:0.1569 loss2:0.2277 | AUC:0.6684 FAR:0.18583
+[2026-05-26 22:01:35,555][main.py][line:74][INFO] [Epoch:349/500]: loss1:0.1569 loss2:0.5293 | AUC:0.6780 FAR:0.17165
+[2026-05-26 22:01:46,566][main.py][line:74][INFO] [Epoch:350/500]: loss1:0.1512 loss2:0.7510 | AUC:0.6246 FAR:0.39006
+[2026-05-26 22:01:57,090][main.py][line:74][INFO] [Epoch:351/500]: loss1:0.1563 loss2:0.6312 | AUC:0.5741 FAR:0.41130
+[2026-05-26 22:02:08,207][main.py][line:74][INFO] [Epoch:352/500]: loss1:0.1767 loss2:0.4792 | AUC:0.5986 FAR:0.42407
+[2026-05-26 22:02:19,099][main.py][line:74][INFO] [Epoch:353/500]: loss1:0.1561 loss2:0.4784 | AUC:0.6668 FAR:0.34172
+[2026-05-26 22:02:30,001][main.py][line:74][INFO] [Epoch:354/500]: loss1:0.1573 loss2:0.5252 | AUC:0.6287 FAR:0.32527
+[2026-05-26 22:02:40,309][main.py][line:74][INFO] [Epoch:355/500]: loss1:0.1368 loss2:0.3988 | AUC:0.6433 FAR:0.41550
+[2026-05-26 22:02:53,421][main.py][line:74][INFO] [Epoch:356/500]: loss1:0.1308 loss2:0.4156 | AUC:0.6368 FAR:0.35497
+[2026-05-26 22:03:05,113][main.py][line:74][INFO] [Epoch:357/500]: loss1:0.1338 loss2:0.7022 | AUC:0.6503 FAR:0.19814
+[2026-05-26 22:03:17,177][main.py][line:74][INFO] [Epoch:358/500]: loss1:0.1228 loss2:0.5123 | AUC:0.6347 FAR:0.40147
+[2026-05-26 22:03:29,581][main.py][line:74][INFO] [Epoch:359/500]: loss1:0.1576 loss2:0.3982 | AUC:0.6350 FAR:0.44226
+[2026-05-26 22:03:41,130][main.py][line:74][INFO] [Epoch:360/500]: loss1:0.1958 loss2:0.5043 | AUC:0.6540 FAR:0.33482
+[2026-05-26 22:03:52,342][main.py][line:74][INFO] [Epoch:361/500]: loss1:0.1565 loss2:0.5788 | AUC:0.6348 FAR:0.31183
+[2026-05-26 22:04:03,676][main.py][line:74][INFO] [Epoch:362/500]: loss1:0.1598 loss2:0.5635 | AUC:0.6906 FAR:0.17184
+[2026-05-26 22:04:14,899][main.py][line:74][INFO] [Epoch:363/500]: loss1:0.1375 loss2:0.6309 | AUC:0.6233 FAR:0.40760
+[2026-05-26 22:04:26,083][main.py][line:74][INFO] [Epoch:364/500]: loss1:0.1258 loss2:0.5726 | AUC:0.6598 FAR:0.24569
+[2026-05-26 22:04:37,441][main.py][line:74][INFO] [Epoch:365/500]: loss1:0.1183 loss2:0.3429 | AUC:0.6546 FAR:0.20000
+[2026-05-26 22:04:49,006][main.py][line:74][INFO] [Epoch:366/500]: loss1:0.1165 loss2:0.3497 | AUC:0.6449 FAR:0.35654
+[2026-05-26 22:05:00,131][main.py][line:74][INFO] [Epoch:367/500]: loss1:0.1218 loss2:0.4510 | AUC:0.6463 FAR:0.35330
+[2026-05-26 22:05:11,015][main.py][line:74][INFO] [Epoch:368/500]: loss1:0.1247 loss2:0.3939 | AUC:0.6442 FAR:0.32673
+[2026-05-26 22:05:23,479][main.py][line:74][INFO] [Epoch:369/500]: loss1:0.1236 loss2:0.4301 | AUC:0.6579 FAR:0.16021
+[2026-05-26 22:05:35,999][main.py][line:74][INFO] [Epoch:370/500]: loss1:0.1229 loss2:0.3726 | AUC:0.6523 FAR:0.34532
+[2026-05-26 22:05:48,286][main.py][line:74][INFO] [Epoch:371/500]: loss1:0.1232 loss2:0.2271 | AUC:0.6739 FAR:0.16900
+[2026-05-26 22:06:00,375][main.py][line:74][INFO] [Epoch:372/500]: loss1:0.1218 loss2:0.1171 | AUC:0.6771 FAR:0.20631
+[2026-05-26 22:06:12,620][main.py][line:74][INFO] [Epoch:373/500]: loss1:0.1280 loss2:0.1367 | AUC:0.6754 FAR:0.19924
+[2026-05-26 22:06:25,088][main.py][line:74][INFO] [Epoch:374/500]: loss1:0.1144 loss2:0.3663 | AUC:0.6545 FAR:0.16843
+[2026-05-26 22:06:37,431][main.py][line:74][INFO] [Epoch:375/500]: loss1:0.1199 loss2:0.1792 | AUC:0.6623 FAR:0.32523
+[2026-05-26 22:06:49,476][main.py][line:74][INFO] [Epoch:376/500]: loss1:0.1259 loss2:0.2899 | AUC:0.6621 FAR:0.41655
+[2026-05-26 22:07:01,885][main.py][line:74][INFO] [Epoch:377/500]: loss1:0.1520 loss2:0.1543 | AUC:0.6804 FAR:0.28348
+[2026-05-26 22:07:14,160][main.py][line:74][INFO] [Epoch:378/500]: loss1:0.1288 loss2:0.1739 | AUC:0.6773 FAR:0.18578
+[2026-05-26 22:07:26,109][main.py][line:74][INFO] [Epoch:379/500]: loss1:0.1147 loss2:0.3492 | AUC:0.6718 FAR:0.15859
+[2026-05-26 22:07:38,325][main.py][line:74][INFO] [Epoch:380/500]: loss1:0.1116 loss2:0.2309 | AUC:0.6583 FAR:0.25288
+[2026-05-26 22:07:50,764][main.py][line:74][INFO] [Epoch:381/500]: loss1:0.0963 loss2:0.2903 | AUC:0.6498 FAR:0.28033
+[2026-05-26 22:08:02,502][main.py][line:74][INFO] [Epoch:382/500]: loss1:0.0981 loss2:0.2837 | AUC:0.6702 FAR:0.31267
+[2026-05-26 22:08:14,661][main.py][line:74][INFO] [Epoch:383/500]: loss1:0.0987 loss2:0.4020 | AUC:0.6571 FAR:0.16434
+[2026-05-26 22:08:26,640][main.py][line:74][INFO] [Epoch:384/500]: loss1:0.0920 loss2:0.3134 | AUC:0.6454 FAR:0.32117
+[2026-05-26 22:08:39,080][main.py][line:74][INFO] [Epoch:385/500]: loss1:0.0943 loss2:0.1162 | AUC:0.6136 FAR:0.38330
+[2026-05-26 22:08:51,538][main.py][line:74][INFO] [Epoch:386/500]: loss1:0.1117 loss2:0.0000 | AUC:0.6557 FAR:0.34661
+[2026-05-26 22:09:03,947][main.py][line:74][INFO] [Epoch:387/500]: loss1:0.0972 loss2:0.2175 | AUC:0.6301 FAR:0.46269
+[2026-05-26 22:09:16,003][main.py][line:74][INFO] [Epoch:388/500]: loss1:0.1046 loss2:0.2805 | AUC:0.6669 FAR:0.15308
+[2026-05-26 22:09:28,088][main.py][line:74][INFO] [Epoch:389/500]: loss1:0.1003 loss2:0.2814 | AUC:0.6562 FAR:0.32589
+[2026-05-26 22:09:40,443][main.py][line:74][INFO] [Epoch:390/500]: loss1:0.0953 loss2:0.3713 | AUC:0.6266 FAR:0.38442
+[2026-05-26 22:09:52,891][main.py][line:74][INFO] [Epoch:391/500]: loss1:0.0862 loss2:0.2728 | AUC:0.6686 FAR:0.20485
+[2026-05-26 22:10:04,702][main.py][line:74][INFO] [Epoch:392/500]: loss1:0.0746 loss2:0.2676 | AUC:0.6516 FAR:0.24638
+[2026-05-26 22:10:16,406][main.py][line:74][INFO] [Epoch:393/500]: loss1:0.0746 loss2:0.1997 | AUC:0.6506 FAR:0.24529
+[2026-05-26 22:10:28,755][main.py][line:74][INFO] [Epoch:394/500]: loss1:0.0719 loss2:0.0534 | AUC:0.6520 FAR:0.19115
+[2026-05-26 22:10:40,916][main.py][line:74][INFO] [Epoch:395/500]: loss1:0.0790 loss2:0.1145 | AUC:0.6466 FAR:0.20421
+[2026-05-26 22:10:53,058][main.py][line:74][INFO] [Epoch:396/500]: loss1:0.0648 loss2:0.1664 | AUC:0.6471 FAR:0.32845
+[2026-05-26 22:11:05,225][main.py][line:74][INFO] [Epoch:397/500]: loss1:0.0652 loss2:0.1122 | AUC:0.6545 FAR:0.23237
+[2026-05-26 22:11:16,426][main.py][line:74][INFO] [Epoch:398/500]: loss1:0.0624 loss2:0.1086 | AUC:0.6489 FAR:0.31446
+[2026-05-26 22:11:27,568][main.py][line:74][INFO] [Epoch:399/500]: loss1:0.0609 loss2:0.1153 | AUC:0.6509 FAR:0.27632
+[2026-05-26 22:11:39,690][main.py][line:74][INFO] [Epoch:400/500]: loss1:0.0551 loss2:0.0440 | AUC:0.6518 FAR:0.29143
+[2026-05-26 22:11:51,658][main.py][line:74][INFO] [Epoch:401/500]: loss1:0.0581 loss2:0.0000 | AUC:0.6565 FAR:0.26765
+[2026-05-26 22:12:04,133][main.py][line:74][INFO] [Epoch:402/500]: loss1:0.0559 loss2:0.1159 | AUC:0.6535 FAR:0.28226
+[2026-05-26 22:12:16,646][main.py][line:74][INFO] [Epoch:403/500]: loss1:0.0550 loss2:0.0537 | AUC:0.6516 FAR:0.24459
+[2026-05-26 22:12:29,082][main.py][line:74][INFO] [Epoch:404/500]: loss1:0.0560 loss2:0.0000 | AUC:0.6636 FAR:0.16897
+[2026-05-26 22:12:41,506][main.py][line:74][INFO] [Epoch:405/500]: loss1:0.0562 loss2:0.1116 | AUC:0.6597 FAR:0.18291
+[2026-05-26 22:12:54,064][main.py][line:74][INFO] [Epoch:406/500]: loss1:0.0506 loss2:0.0000 | AUC:0.6493 FAR:0.30222
+[2026-05-26 22:13:06,837][main.py][line:74][INFO] [Epoch:407/500]: loss1:0.0489 loss2:0.0000 | AUC:0.6533 FAR:0.27942
+[2026-05-26 22:13:18,823][main.py][line:74][INFO] [Epoch:408/500]: loss1:0.0497 loss2:0.0000 | AUC:0.6590 FAR:0.23571
+[2026-05-26 22:13:31,367][main.py][line:74][INFO] [Epoch:409/500]: loss1:0.0463 loss2:0.0000 | AUC:0.6617 FAR:0.20528
+[2026-05-26 22:13:43,844][main.py][line:74][INFO] [Epoch:410/500]: loss1:0.0440 loss2:0.0000 | AUC:0.6593 FAR:0.26529
+[2026-05-26 22:13:55,881][main.py][line:74][INFO] [Epoch:411/500]: loss1:0.0476 loss2:0.0000 | AUC:0.6670 FAR:0.18432
+[2026-05-26 22:14:07,989][main.py][line:74][INFO] [Epoch:412/500]: loss1:0.0466 loss2:0.0000 | AUC:0.6590 FAR:0.27240
+[2026-05-26 22:14:18,650][main.py][line:74][INFO] [Epoch:413/500]: loss1:0.0475 loss2:0.0000 | AUC:0.6638 FAR:0.20311
+[2026-05-26 22:14:31,212][main.py][line:74][INFO] [Epoch:414/500]: loss1:0.0439 loss2:0.0000 | AUC:0.6618 FAR:0.22161
+[2026-05-26 22:14:43,373][main.py][line:74][INFO] [Epoch:415/500]: loss1:0.0424 loss2:0.0000 | AUC:0.6621 FAR:0.21046
+[2026-05-26 22:14:55,754][main.py][line:74][INFO] [Epoch:416/500]: loss1:0.0430 loss2:0.0000 | AUC:0.6621 FAR:0.21046
+[2026-05-26 22:15:08,284][main.py][line:74][INFO] [Epoch:417/500]: loss1:0.0428 loss2:0.0000 | AUC:0.6627 FAR:0.20592
+[2026-05-26 22:15:20,723][main.py][line:74][INFO] [Epoch:418/500]: loss1:0.0428 loss2:0.0000 | AUC:0.6632 FAR:0.20444
+[2026-05-26 22:15:33,488][main.py][line:74][INFO] [Epoch:419/500]: loss1:0.0422 loss2:0.0000 | AUC:0.6630 FAR:0.20597
+[2026-05-26 22:15:46,300][main.py][line:74][INFO] [Epoch:420/500]: loss1:0.0429 loss2:0.0000 | AUC:0.6631 FAR:0.20566
+[2026-05-26 22:15:59,386][main.py][line:74][INFO] [Epoch:421/500]: loss1:0.0417 loss2:0.0000 | AUC:0.6631 FAR:0.20566
+[2026-05-26 22:16:11,489][main.py][line:74][INFO] [Epoch:422/500]: loss1:0.0447 loss2:0.0000 | AUC:0.6631 FAR:0.20583
+[2026-05-26 22:16:23,874][main.py][line:74][INFO] [Epoch:423/500]: loss1:0.0413 loss2:0.0000 | AUC:0.6634 FAR:0.20433
+[2026-05-26 22:16:36,526][main.py][line:74][INFO] [Epoch:424/500]: loss1:0.0418 loss2:0.0000 | AUC:0.6635 FAR:0.20316
+[2026-05-26 22:16:49,323][main.py][line:74][INFO] [Epoch:425/500]: loss1:0.0421 loss2:0.0000 | AUC:0.6635 FAR:0.20490
+[2026-05-26 22:17:01,941][main.py][line:74][INFO] [Epoch:426/500]: loss1:0.0438 loss2:0.0000 | AUC:0.6636 FAR:0.20736
+[2026-05-26 22:17:15,245][main.py][line:74][INFO] [Epoch:427/500]: loss1:0.0425 loss2:0.0000 | AUC:0.6655 FAR:0.19721
+[2026-05-26 22:17:28,396][main.py][line:74][INFO] [Epoch:428/500]: loss1:0.0413 loss2:0.0000 | AUC:0.6662 FAR:0.19843
+[2026-05-26 22:17:41,117][main.py][line:74][INFO] [Epoch:429/500]: loss1:0.0414 loss2:0.0000 | AUC:0.6671 FAR:0.19449
+[2026-05-26 22:17:53,529][main.py][line:74][INFO] [Epoch:430/500]: loss1:0.0423 loss2:0.0000 | AUC:0.6698 FAR:0.19079
+[2026-05-26 22:18:05,964][main.py][line:74][INFO] [Epoch:431/500]: loss1:0.0425 loss2:0.0000 | AUC:0.6715 FAR:0.18222
+[2026-05-26 22:18:18,736][main.py][line:74][INFO] [Epoch:432/500]: loss1:0.0403 loss2:0.0000 | AUC:0.6680 FAR:0.21029
+[2026-05-26 22:18:30,784][main.py][line:74][INFO] [Epoch:433/500]: loss1:0.0455 loss2:0.0000 | AUC:0.6754 FAR:0.18151
+[2026-05-26 22:18:43,299][main.py][line:74][INFO] [Epoch:434/500]: loss1:0.0452 loss2:0.0000 | AUC:0.6690 FAR:0.19220
+[2026-05-26 22:18:55,875][main.py][line:74][INFO] [Epoch:435/500]: loss1:0.0422 loss2:0.0000 | AUC:0.6693 FAR:0.19585
+[2026-05-26 22:19:08,134][main.py][line:74][INFO] [Epoch:436/500]: loss1:0.0420 loss2:0.0000 | AUC:0.6723 FAR:0.20917
+[2026-05-26 22:19:20,534][main.py][line:74][INFO] [Epoch:437/500]: loss1:0.0436 loss2:0.0000 | AUC:0.6773 FAR:0.17499
+[2026-05-26 22:19:33,286][main.py][line:74][INFO] [Epoch:438/500]: loss1:0.0424 loss2:0.0000 | AUC:0.6800 FAR:0.17687
+[2026-05-26 22:19:45,368][main.py][line:74][INFO] [Epoch:439/500]: loss1:0.0426 loss2:0.0000 | AUC:0.6786 FAR:0.17384
+[2026-05-26 22:19:58,051][main.py][line:74][INFO] [Epoch:440/500]: loss1:0.0467 loss2:0.0000 | AUC:0.6796 FAR:0.17676
+[2026-05-26 22:20:10,379][main.py][line:74][INFO] [Epoch:441/500]: loss1:0.0448 loss2:0.0000 | AUC:0.6695 FAR:0.19638
+[2026-05-26 22:20:22,745][main.py][line:74][INFO] [Epoch:442/500]: loss1:0.0571 loss2:0.0000 | AUC:0.6818 FAR:0.16441
+[2026-05-26 22:20:35,753][main.py][line:74][INFO] [Epoch:443/500]: loss1:0.0573 loss2:0.0000 | AUC:0.6841 FAR:0.15279
+[2026-05-26 22:20:47,814][main.py][line:74][INFO] [Epoch:444/500]: loss1:0.0585 loss2:0.0000 | AUC:0.6712 FAR:0.21366
+[2026-05-26 22:21:00,660][main.py][line:74][INFO] [Epoch:445/500]: loss1:0.0491 loss2:0.0000 | AUC:0.6571 FAR:0.31890
+[2026-05-26 22:21:12,934][main.py][line:74][INFO] [Epoch:446/500]: loss1:0.0507 loss2:0.0000 | AUC:0.6851 FAR:0.15425
+[2026-05-26 22:21:25,373][main.py][line:74][INFO] [Epoch:447/500]: loss1:0.0593 loss2:0.0000 | AUC:0.6749 FAR:0.19664
+[2026-05-26 22:21:37,727][main.py][line:74][INFO] [Epoch:448/500]: loss1:0.0544 loss2:0.0000 | AUC:0.6649 FAR:0.32503
+[2026-05-26 22:21:50,663][main.py][line:74][INFO] [Epoch:449/500]: loss1:0.0536 loss2:0.0000 | AUC:0.6785 FAR:0.20946
+[2026-05-26 22:22:03,315][main.py][line:74][INFO] [Epoch:450/500]: loss1:0.0513 loss2:0.0000 | AUC:0.6785 FAR:0.18170
+[2026-05-26 22:22:16,177][main.py][line:74][INFO] [Epoch:451/500]: loss1:0.0614 loss2:0.0000 | AUC:0.6851 FAR:0.22640
+[2026-05-26 22:22:29,056][main.py][line:74][INFO] [Epoch:452/500]: loss1:0.0610 loss2:0.0000 | AUC:0.6815 FAR:0.20986
+[2026-05-26 22:22:41,809][main.py][line:74][INFO] [Epoch:453/500]: loss1:0.0677 loss2:0.0000 | AUC:0.6680 FAR:0.18540
+[2026-05-26 22:22:54,596][main.py][line:74][INFO] [Epoch:454/500]: loss1:0.0773 loss2:0.0000 | AUC:0.6843 FAR:0.16673
+[2026-05-26 22:23:06,826][main.py][line:74][INFO] [Epoch:455/500]: loss1:0.0872 loss2:0.0000 | AUC:0.6631 FAR:0.20838
+[2026-05-26 22:23:19,251][main.py][line:74][INFO] [Epoch:456/500]: loss1:0.0789 loss2:0.0000 | AUC:0.6729 FAR:0.21688
+[2026-05-26 22:23:31,988][main.py][line:74][INFO] [Epoch:457/500]: loss1:0.0845 loss2:0.0000 | AUC:0.6811 FAR:0.25266
+[2026-05-26 22:23:44,959][main.py][line:74][INFO] [Epoch:458/500]: loss1:0.0823 loss2:0.0000 | AUC:0.6616 FAR:0.36220
+[2026-05-26 22:23:57,496][main.py][line:74][INFO] [Epoch:459/500]: loss1:0.1111 loss2:0.0000 | AUC:0.6336 FAR:0.41753
+[2026-05-26 22:24:10,142][main.py][line:74][INFO] [Epoch:460/500]: loss1:0.1985 loss2:0.0000 | AUC:0.6729 FAR:0.22691
+[2026-05-26 22:24:23,491][main.py][line:74][INFO] [Epoch:461/500]: loss1:0.1829 loss2:0.0000 | AUC:0.5962 FAR:0.49465
+[2026-05-26 22:24:36,281][main.py][line:74][INFO] [Epoch:462/500]: loss1:0.2340 loss2:0.2516 | AUC:0.6059 FAR:0.30966
+[2026-05-26 22:24:49,049][main.py][line:74][INFO] [Epoch:463/500]: loss1:0.1394 loss2:0.1259 | AUC:0.7051 FAR:0.25939
+[2026-05-26 22:25:02,206][main.py][line:74][INFO] [Epoch:464/500]: loss1:0.1313 loss2:0.1849 | AUC:0.6705 FAR:0.18136
+[2026-05-26 22:25:14,940][main.py][line:74][INFO] [Epoch:465/500]: loss1:0.1605 loss2:0.0000 | AUC:0.6964 FAR:0.13155
+[2026-05-26 22:25:27,705][main.py][line:74][INFO] [Epoch:466/500]: loss1:0.1549 loss2:0.3096 | AUC:0.6603 FAR:0.32682
+[2026-05-26 22:25:40,878][main.py][line:74][INFO] [Epoch:467/500]: loss1:0.1373 loss2:0.3471 | AUC:0.6578 FAR:0.28042
+[2026-05-26 22:25:53,411][main.py][line:74][INFO] [Epoch:468/500]: loss1:0.1384 loss2:0.6637 | AUC:0.6491 FAR:0.43355
+[2026-05-26 22:26:05,935][main.py][line:74][INFO] [Epoch:469/500]: loss1:0.1153 loss2:0.5388 | AUC:0.6572 FAR:0.36425
+[2026-05-26 22:26:18,500][main.py][line:74][INFO] [Epoch:470/500]: loss1:0.1075 loss2:0.3011 | AUC:0.6533 FAR:0.41860
+[2026-05-26 22:26:31,412][main.py][line:74][INFO] [Epoch:471/500]: loss1:0.1355 loss2:0.6460 | AUC:0.6907 FAR:0.18124
+[2026-05-26 22:26:44,170][main.py][line:74][INFO] [Epoch:472/500]: loss1:0.0889 loss2:0.6896 | AUC:0.6676 FAR:0.38060
+[2026-05-26 22:26:56,964][main.py][line:74][INFO] [Epoch:473/500]: loss1:0.0962 loss2:0.6713 | AUC:0.6459 FAR:0.39409
+[2026-05-26 22:27:09,957][main.py][line:74][INFO] [Epoch:474/500]: loss1:0.1176 loss2:0.6166 | AUC:0.6663 FAR:0.23867
+[2026-05-26 22:27:22,995][main.py][line:74][INFO] [Epoch:475/500]: loss1:0.1027 loss2:0.3386 | AUC:0.6687 FAR:0.27264
+[2026-05-26 22:27:36,210][main.py][line:74][INFO] [Epoch:476/500]: loss1:0.1288 loss2:0.4196 | AUC:0.6651 FAR:0.19368
+[2026-05-26 22:27:48,970][main.py][line:74][INFO] [Epoch:477/500]: loss1:0.1109 loss2:0.6670 | AUC:0.6691 FAR:0.24381
+[2026-05-26 22:28:00,591][main.py][line:74][INFO] [Epoch:478/500]: loss1:0.1063 loss2:0.6294 | AUC:0.6989 FAR:0.12809
+[2026-05-26 22:28:12,547][main.py][line:74][INFO] [Epoch:479/500]: loss1:0.1039 loss2:0.4039 | AUC:0.6696 FAR:0.26684
+[2026-05-26 22:28:23,300][main.py][line:74][INFO] [Epoch:480/500]: loss1:0.1017 loss2:0.1142 | AUC:0.6652 FAR:0.30229
+[2026-05-26 22:28:33,869][main.py][line:74][INFO] [Epoch:481/500]: loss1:0.1070 loss2:0.1852 | AUC:0.6891 FAR:0.16957
+[2026-05-26 22:28:44,988][main.py][line:74][INFO] [Epoch:482/500]: loss1:0.1068 loss2:0.2801 | AUC:0.6676 FAR:0.35153
+[2026-05-26 22:28:55,474][main.py][line:74][INFO] [Epoch:483/500]: loss1:0.0959 loss2:0.1774 | AUC:0.6893 FAR:0.19256
+[2026-05-26 22:29:07,066][main.py][line:74][INFO] [Epoch:484/500]: loss1:0.0846 loss2:0.0609 | AUC:0.6819 FAR:0.17306
+[2026-05-26 22:29:18,171][main.py][line:74][INFO] [Epoch:485/500]: loss1:0.1083 loss2:0.1137 | AUC:0.7060 FAR:0.22433
+[2026-05-26 22:29:30,654][main.py][line:74][INFO] [Epoch:486/500]: loss1:0.1065 loss2:0.1283 | AUC:0.6826 FAR:0.15955
+[2026-05-26 22:29:43,644][main.py][line:74][INFO] [Epoch:487/500]: loss1:0.1006 loss2:0.2492 | AUC:0.6919 FAR:0.23340
+[2026-05-26 22:29:56,507][main.py][line:74][INFO] [Epoch:488/500]: loss1:0.0977 loss2:0.2308 | AUC:0.7029 FAR:0.17244
+[2026-05-26 22:30:08,871][main.py][line:74][INFO] [Epoch:489/500]: loss1:0.0951 loss2:0.5194 | AUC:0.7036 FAR:0.16212
+[2026-05-26 22:30:21,368][main.py][line:74][INFO] [Epoch:490/500]: loss1:0.0860 loss2:0.4502 | AUC:0.6739 FAR:0.29076
+[2026-05-26 22:30:34,442][main.py][line:74][INFO] [Epoch:491/500]: loss1:0.0861 loss2:0.3385 | AUC:0.6867 FAR:0.16862
+[2026-05-26 22:30:47,061][main.py][line:74][INFO] [Epoch:492/500]: loss1:0.0878 loss2:0.3271 | AUC:0.7014 FAR:0.12219
+[2026-05-26 22:30:59,788][main.py][line:74][INFO] [Epoch:493/500]: loss1:0.0806 loss2:0.1118 | AUC:0.7155 FAR:0.16425
+[2026-05-26 22:31:13,022][main.py][line:74][INFO] [Epoch:494/500]: loss1:0.0815 loss2:0.3501 | AUC:0.6656 FAR:0.30797
+[2026-05-26 22:31:25,856][main.py][line:74][INFO] [Epoch:495/500]: loss1:0.0898 loss2:0.1709 | AUC:0.6650 FAR:0.19284
+[2026-05-26 22:31:38,808][main.py][line:74][INFO] [Epoch:496/500]: loss1:0.0725 loss2:0.1656 | AUC:0.6799 FAR:0.20702
+[2026-05-26 22:31:51,431][main.py][line:74][INFO] [Epoch:497/500]: loss1:0.0624 loss2:0.1103 | AUC:0.6999 FAR:0.18752
+[2026-05-26 22:32:04,227][main.py][line:74][INFO] [Epoch:498/500]: loss1:0.0790 loss2:0.1693 | AUC:0.6980 FAR:0.17618
+[2026-05-26 22:32:17,281][main.py][line:74][INFO] [Epoch:499/500]: loss1:0.1140 loss2:0.1833 | AUC:0.7011 FAR:0.17458
+[2026-05-26 22:32:29,765][main.py][line:74][INFO] [Epoch:500/500]: loss1:0.0821 loss2:0.3090 | AUC:0.7031 FAR:0.15126
+[2026-05-26 22:32:29,771][main.py][line:80][INFO] Training completes in 99m 54s | best AUC:0.7347 FAR:0.19280
+
+[2026-05-28 19:16:30,278][main.py][line:87][INFO] Config:{'dataset': 'ucf-crime', 'model_name': 'ucf_', 'metrics': 'AUC', 'feat_prefix': '/home/hugo/Desktop/TFG/ucf_crime/UCF_vjepa21_16_768', 'train_list': './list/ucf/train_new.list', 'test_list': './list/ucf/test_new.list', 'token_feat': './list/ucf/ucf-prompt.npy', 'gt': './list/ucf/ucf-gt-updated.npy', 'win_size': 9, 'gamma': 0.6, 'bias': 0.2, 'norm': True, 't_step': 9, 'temp': 0.09, 'lamda': 1, 'seed': 9, 'test_bs': 1, 'smooth': 'slide', 'kappa': 7, 'ckpt_path': './ckpt/ucf__8636.pkl', 'feat_dim': 768, 'head_num': 1, 'hid_dim': 128, 'out_dim': 300, 'lr': 0.0005, 'dropout': 0.1, 'train_bs': 128, 'max_seqlen': 200, 'max_epoch': 500, 'workers': 8, 'save_dir': './ckpt/', 'logs_dir': './log_info.log'}
+[2026-05-28 19:16:33,074][main.py][line:113][INFO] total params:0.8094M
+[2026-05-28 19:16:33,074][main.py][line:116][INFO] Training Mode
+[2026-05-28 19:16:34,004][main.py][line:53][INFO] Model:XModel(
+  (self_attention): XEncoder(
+    (self_attn): TCA(
+      (q): Linear(in_features=768, out_features=128, bias=True)
+      (k): Linear(in_features=768, out_features=128, bias=True)
+      (v): Linear(in_features=768, out_features=128, bias=True)
+      (o): Linear(in_features=128, out_features=768, bias=True)
+      (act): Softmax(dim=-1)
+    )
+    (linear1): Conv1d(768, 384, kernel_size=(1,), stride=(1,))
+    (linear2): Conv1d(384, 300, kernel_size=(1,), stride=(1,))
+    (dropout1): Dropout(p=0.1, inplace=False)
+    (dropout2): Dropout(p=0.1, inplace=False)
+    (norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (loc_adj): DistanceAdj()
+  )
+  (classifier): Conv1d(300, 1, kernel_size=(9,), stride=(1,))
+)
+
+[2026-05-28 19:16:34,004][main.py][line:54][INFO] Optimizer:Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    decoupled_weight_decay: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0005
+    lr: 0.0005
+    maximize: False
+    weight_decay: 0
+)
+
+[2026-05-28 19:16:39,516][main.py][line:57][INFO] Random initialize AUC:0.4167 FAR:0.96057
+[2026-05-28 19:36:53,451][main.py][line:87][INFO] Config:{'dataset': 'ucf-crime', 'model_name': 'ucf_', 'metrics': 'AUC', 'feat_prefix': '/home/hugo/Desktop/TFG/ucf_crime/UCF_vjepa21_16_768', 'train_list': './list/ucf/train_new.list', 'test_list': './list/ucf/test_new.list', 'token_feat': './list/ucf/ucf-prompt.npy', 'gt': './list/ucf/ucf-gt-updated.npy', 'win_size': 9, 'gamma': 0.6, 'bias': 0.2, 'norm': True, 't_step': 9, 'temp': 0.09, 'lamda': 1, 'seed': 9, 'test_bs': 1, 'smooth': 'slide', 'kappa': 7, 'ckpt_path': './ckpt/ucf__8636.pkl', 'feat_dim': 768, 'head_num': 1, 'hid_dim': 128, 'out_dim': 300, 'lr': 0.0005, 'dropout': 0.1, 'train_bs': 128, 'max_seqlen': 200, 'max_epoch': 500, 'workers': 8, 'save_dir': './ckpt/', 'logs_dir': './log_info.log'}
+[2026-05-28 19:36:56,168][main.py][line:113][INFO] total params:1.0065M
+[2026-05-28 19:36:56,168][main.py][line:116][INFO] Training Mode
+[2026-05-28 19:36:56,738][main.py][line:53][INFO] Model:XModel(
+  (self_attention): XEncoder(
+    (self_attn): TCA(
+      (q): Linear(in_features=768, out_features=128, bias=True)
+      (k): Linear(in_features=768, out_features=128, bias=True)
+      (v): Linear(in_features=768, out_features=128, bias=True)
+      (o): Linear(in_features=128, out_features=768, bias=True)
+      (act): Softmax(dim=-1)
+    )
+    (linear1): Conv1d(768, 384, kernel_size=(1,), stride=(1,))
+    (linear2): Conv1d(384, 300, kernel_size=(1,), stride=(1,))
+    (dropout1): Dropout(p=0.1, inplace=False)
+    (dropout2): Dropout(p=0.1, inplace=False)
+    (norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (loc_adj): DistanceAdj()
+  )
+  (classifier): Conv1d(300, 1, kernel_size=(9,), stride=(1,))
+  (v_align): Conv1d(384, 512, kernel_size=(1,), stride=(1,))
+)
+
+[2026-05-28 19:36:56,739][main.py][line:54][INFO] Optimizer:Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    decoupled_weight_decay: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0005
+    lr: 0.0005
+    maximize: False
+    weight_decay: 0
+)
+
+[2026-05-28 19:37:01,916][main.py][line:57][INFO] Random initialize AUC:0.4932 FAR:0.95651
+[2026-05-28 19:43:37,789][main.py][line:87][INFO] Config:{'dataset': 'ucf-crime', 'model_name': 'ucf_', 'metrics': 'AUC', 'feat_prefix': '/home/hugo/Desktop/TFG/ucf_crime/UCF_vjepa21_16_768', 'train_list': './list/ucf/train_new.list', 'test_list': './list/ucf/test_new.list', 'token_feat': './list/ucf/ucf-prompt.npy', 'gt': './list/ucf/ucf-gt-updated.npy', 'win_size': 9, 'gamma': 0.6, 'bias': 0.2, 'norm': True, 't_step': 9, 'temp': 0.09, 'lamda': 1, 'seed': 9, 'test_bs': 1, 'smooth': 'slide', 'kappa': 7, 'ckpt_path': './ckpt/ucf__8636.pkl', 'feat_dim': 768, 'head_num': 1, 'hid_dim': 128, 'out_dim': 300, 'lr': 0.0005, 'dropout': 0.1, 'train_bs': 128, 'max_seqlen': 200, 'max_epoch': 500, 'workers': 8, 'save_dir': './ckpt/', 'logs_dir': './log_info.log'}
+[2026-05-28 19:43:40,530][main.py][line:113][INFO] total params:0.9462M
+[2026-05-28 19:43:40,530][main.py][line:116][INFO] Training Mode
+[2026-05-28 19:43:41,090][main.py][line:53][INFO] Model:XModel(
+  (self_attention): XEncoder(
+    (self_attn): TCA(
+      (q): Linear(in_features=768, out_features=128, bias=True)
+      (k): Linear(in_features=768, out_features=128, bias=True)
+      (v): Linear(in_features=768, out_features=128, bias=True)
+      (o): Linear(in_features=128, out_features=768, bias=True)
+      (act): Softmax(dim=-1)
+    )
+    (linear1): Conv1d(768, 512, kernel_size=(1,), stride=(1,))
+    (linear2): Conv1d(512, 300, kernel_size=(1,), stride=(1,))
+    (dropout1): Dropout(p=0.1, inplace=False)
+    (dropout2): Dropout(p=0.1, inplace=False)
+    (norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (loc_adj): DistanceAdj()
+  )
+  (classifier): Conv1d(300, 1, kernel_size=(9,), stride=(1,))
+)
+
+[2026-05-28 19:43:41,090][main.py][line:54][INFO] Optimizer:Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    decoupled_weight_decay: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0005
+    lr: 0.0005
+    maximize: False
+    weight_decay: 0
+)
+
+[2026-05-28 19:43:45,692][main.py][line:57][INFO] Random initialize AUC:0.3772 FAR:0.70798
+[2026-05-28 19:43:56,207][main.py][line:74][INFO] [Epoch:1/500]: loss1:0.4770 loss2:1.2504 | AUC:0.6668 FAR:0.19428
+[2026-05-28 19:44:07,714][main.py][line:74][INFO] [Epoch:2/500]: loss1:0.3753 loss2:1.1507 | AUC:0.6751 FAR:0.93052
+[2026-05-28 19:44:18,758][main.py][line:74][INFO] [Epoch:3/500]: loss1:0.3474 loss2:1.1141 | AUC:0.6363 FAR:0.95758
+[2026-05-28 19:44:29,776][main.py][line:74][INFO] [Epoch:4/500]: loss1:0.3362 loss2:1.0984 | AUC:0.5857 FAR:0.95844
+[2026-05-28 19:44:40,362][main.py][line:74][INFO] [Epoch:5/500]: loss1:0.3369 loss2:1.0726 | AUC:0.6704 FAR:0.94056
+[2026-05-28 19:44:51,561][main.py][line:74][INFO] [Epoch:6/500]: loss1:0.3328 loss2:1.0630 | AUC:0.6360 FAR:0.93367
+[2026-05-28 19:45:03,252][main.py][line:74][INFO] [Epoch:7/500]: loss1:0.3263 loss2:1.0519 | AUC:0.6686 FAR:0.88683
+[2026-05-28 19:45:14,905][main.py][line:74][INFO] [Epoch:8/500]: loss1:0.3360 loss2:1.0494 | AUC:0.6169 FAR:0.93266
+[2026-05-28 19:45:27,258][main.py][line:74][INFO] [Epoch:9/500]: loss1:0.3309 loss2:1.0548 | AUC:0.5852 FAR:0.93235
+[2026-05-28 19:45:41,660][main.py][line:87][INFO] Config:{'dataset': 'ucf-crime', 'model_name': 'ucf_', 'metrics': 'AUC', 'feat_prefix': '/home/hugo/Desktop/TFG/ucf_crime/UCF_vjepa21_16_768', 'train_list': './list/ucf/train_new.list', 'test_list': './list/ucf/test_new.list', 'token_feat': './list/ucf/ucf-prompt.npy', 'gt': './list/ucf/ucf-gt-updated.npy', 'win_size': 9, 'gamma': 0.6, 'bias': 0.2, 'norm': True, 't_step': 9, 'temp': 0.09, 'lamda': 1, 'seed': 9, 'test_bs': 1, 'smooth': 'slide', 'kappa': 7, 'ckpt_path': './ckpt/ucf__8636.pkl', 'feat_dim': 768, 'head_num': 1, 'hid_dim': 128, 'out_dim': 300, 'lr': 0.0005, 'dropout': 0.1, 'train_bs': 128, 'max_seqlen': 200, 'max_epoch': 200, 'workers': 8, 'save_dir': './ckpt/', 'logs_dir': './log_info.log'}
+[2026-05-28 19:45:44,406][main.py][line:113][INFO] total params:0.9462M
+[2026-05-28 19:45:44,406][main.py][line:116][INFO] Training Mode
+[2026-05-28 19:45:45,072][main.py][line:53][INFO] Model:XModel(
+  (self_attention): XEncoder(
+    (self_attn): TCA(
+      (q): Linear(in_features=768, out_features=128, bias=True)
+      (k): Linear(in_features=768, out_features=128, bias=True)
+      (v): Linear(in_features=768, out_features=128, bias=True)
+      (o): Linear(in_features=128, out_features=768, bias=True)
+      (act): Softmax(dim=-1)
+    )
+    (linear1): Conv1d(768, 512, kernel_size=(1,), stride=(1,))
+    (linear2): Conv1d(512, 300, kernel_size=(1,), stride=(1,))
+    (dropout1): Dropout(p=0.1, inplace=False)
+    (dropout2): Dropout(p=0.1, inplace=False)
+    (norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (loc_adj): DistanceAdj()
+  )
+  (classifier): Conv1d(300, 1, kernel_size=(9,), stride=(1,))
+)
+
+[2026-05-28 19:45:45,072][main.py][line:54][INFO] Optimizer:Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    decoupled_weight_decay: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0005
+    lr: 0.0005
+    maximize: False
+    weight_decay: 0
+)
+
+[2026-05-28 19:45:50,955][main.py][line:57][INFO] Random initialize AUC:0.3772 FAR:0.70798
+[2026-05-28 19:46:04,012][main.py][line:74][INFO] [Epoch:1/200]: loss1:0.4770 loss2:1.2504 | AUC:0.6668 FAR:0.19428
+[2026-05-28 19:46:16,913][main.py][line:74][INFO] [Epoch:2/200]: loss1:0.3753 loss2:1.1507 | AUC:0.6751 FAR:0.93052
+[2026-05-28 19:46:30,092][main.py][line:74][INFO] [Epoch:3/200]: loss1:0.3474 loss2:1.1141 | AUC:0.6363 FAR:0.95758
+[2026-05-28 19:46:42,698][main.py][line:74][INFO] [Epoch:4/200]: loss1:0.3362 loss2:1.0984 | AUC:0.5857 FAR:0.95844
+[2026-05-28 19:46:55,283][main.py][line:74][INFO] [Epoch:5/200]: loss1:0.3369 loss2:1.0726 | AUC:0.6704 FAR:0.94056
+[2026-05-28 19:47:08,752][main.py][line:74][INFO] [Epoch:6/200]: loss1:0.3328 loss2:1.0630 | AUC:0.6360 FAR:0.93367
+[2026-05-28 19:47:20,410][main.py][line:74][INFO] [Epoch:7/200]: loss1:0.3263 loss2:1.0519 | AUC:0.6686 FAR:0.88683
+[2026-05-28 19:47:31,042][main.py][line:74][INFO] [Epoch:8/200]: loss1:0.3360 loss2:1.0494 | AUC:0.6169 FAR:0.93266
+[2026-05-28 19:47:41,944][main.py][line:74][INFO] [Epoch:9/200]: loss1:0.3309 loss2:1.0548 | AUC:0.5852 FAR:0.93235
+[2026-05-28 19:47:52,558][main.py][line:74][INFO] [Epoch:10/200]: loss1:0.3281 loss2:1.0463 | AUC:0.6757 FAR:0.90844

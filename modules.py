@@ -11,8 +11,9 @@ class XEncoder(nn.Module):
         self.n_heads = n_heads
         self.win_size = win_size
         self.self_attn = TCA(d_model, hid_dim, hid_dim, n_heads, norm)
-        self.linear1 = nn.Conv1d(d_model, d_model // 2, kernel_size=1)
-        self.linear2 = nn.Conv1d(d_model // 2, out_dim, kernel_size=1)
+        # Forzar 512 dimensiones de salida para alinear la salida de vjepa2 con CLIPS
+        self.linear1 = nn.Conv1d(d_model, 512, kernel_size=1) # self.linear1 = nn.Conv1d(d_model, d_model // 2, kernel_size=1) 
+        self.linear2 = nn.Conv1d(512, out_dim, kernel_size=1) # self.linear2 = nn.Conv1d(d_model // 2, out_dim, kernel_size=1)
         self.dropout1 = nn.Dropout(dropout)
         self.dropout2 = nn.Dropout(dropout)
         self.norm = nn.LayerNorm(d_model)
